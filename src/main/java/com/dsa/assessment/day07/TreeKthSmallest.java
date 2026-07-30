@@ -1,5 +1,7 @@
 package com.dsa.assessment.day07;
 
+import com.dsa.assessment.day06.TreeNode;
+
 /**
  * Day 07 - TreeKthSmallest
  * 

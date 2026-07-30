@@ -4,41 +4,41 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.NullAndEmptySource;
-import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Day 02 - CountOccurrences Tests")
 class CountOccurrencesTest {
 
-    private CountOccurrences countoccurrences;
+    private CountOccurrences countOccurrences;
 
     @BeforeEach
     void setUp() {
-        countoccurrences = new CountOccurrences();
+        countOccurrences = new CountOccurrences();
     }
 
     @Nested
     @DisplayName("Positive Test Cases")
     class PositiveTests {
- 
         @Test
         @DisplayName("Should count occurrences in sorted array")
         void shouldCountOccurrences() {
             int[] input = {1, 2, 2, 2, 3, 4};
-            assertThat(${class_name,,}.count(input, 2)).isEqualTo(3);
+            assertEquals(3, countOccurrences.count(input, 2));
         }
 
         @Test
-        @DisplayName("Should return zero for non-existent")
-        void shouldReturnZeroForNonExistent() {
+        @DisplayName("Should return 1 for single occurrence")
+        void shouldReturnOneForSingleOccurrence() {
             int[] input = {1, 2, 3, 4};
-            assertThat(${class_name,,}.count(input, 5)).isZero();
+            assertEquals(1, countOccurrences.count(input, 3));
+        }
+
+        @Test
+        @DisplayName("Should count all same elements")
+        void shouldCountAllSameElements() {
+            int[] input = {5, 5, 5, 5};
+            assertEquals(4, countOccurrences.count(input, 5));
         }
     }
 
@@ -46,17 +46,22 @@ class CountOccurrencesTest {
     @DisplayName("Edge Cases")
     class EdgeCases {
         @Test
-        @DisplayName("Should handle edge case 1")
-        void shouldHandleEdgeCase1() {
-            // TODO: Add appropriate edge case test
-            assertDoesNotThrow(() -> countoccurrences.count(null));
+        @DisplayName("Should return zero for non-existent")
+        void shouldReturnZeroForNonExistent() {
+            int[] input = {1, 2, 3, 4};
+            assertEquals(0, countOccurrences.count(input, 5));
         }
 
         @Test
-        @DisplayName("Should handle edge case 2")
-        void shouldHandleEdgeCase2() {
-            // TODO: Add appropriate edge case test
-            assertDoesNotThrow(() -> countoccurrences.count(null));
+        @DisplayName("Should handle null array")
+        void shouldHandleNullArray() {
+            assertEquals(0, countOccurrences.count(null, 5));
+        }
+
+        @Test
+        @DisplayName("Should handle empty array")
+        void shouldHandleEmptyArray() {
+            assertEquals(0, countOccurrences.count(new int[]{}, 5));
         }
     }
 
@@ -64,10 +69,12 @@ class CountOccurrencesTest {
     @DisplayName("Negative Test Cases")
     class NegativeTests {
         @Test
-        @DisplayName("Should throw exception for invalid input")
-        void shouldThrowExceptionForInvalidInput() {
-            // TODO: Add appropriate negative test
-            assertThrows(Exception.class, () -> countoccurrences.count(null));
+        @DisplayName("Should not modify original array")
+        void shouldNotModifyOriginalArray() {
+            int[] input = {1, 2, 2, 2, 3};
+            int[] original = input.clone();
+            countOccurrences.count(input, 2);
+            assertArrayEquals(original, input);
         }
     }
 }

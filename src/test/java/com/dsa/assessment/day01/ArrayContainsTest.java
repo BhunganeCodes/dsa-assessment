@@ -4,41 +4,55 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.NullAndEmptySource;
-import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Day 01 - ArrayContains Tests")
 class ArrayContainsTest {
 
-    private ArrayContains arraycontains;
+    private ArrayContains arrayContains;
 
     @BeforeEach
     void setUp() {
-        arraycontains = new ArrayContains();
+        arrayContains = new ArrayContains();
     }
 
     @Nested
     @DisplayName("Positive Test Cases")
     class PositiveTests {
- 
         @Test
         @DisplayName("Should return true when element exists")
         void shouldReturnTrueWhenExists() {
             int[] input = {1, 2, 3, 4, 5};
-            assertThat(${class_name,,}.contains(input, 3)).isTrue();
+            assertTrue(arrayContains.contains(input, 3));
         }
 
         @Test
         @DisplayName("Should return false when element not exists")
         void shouldReturnFalseWhenNotExists() {
             int[] input = {1, 2, 3, 4, 5};
-            assertThat(${class_name,,}.contains(input, 6)).isFalse();
+            assertFalse(arrayContains.contains(input, 6));
+        }
+
+        @Test
+        @DisplayName("Should find first element")
+        void shouldFindFirstElement() {
+            int[] input = {10, 20, 30};
+            assertTrue(arrayContains.contains(input, 10));
+        }
+
+        @Test
+        @DisplayName("Should find last element")
+        void shouldFindLastElement() {
+            int[] input = {10, 20, 30};
+            assertTrue(arrayContains.contains(input, 30));
+        }
+
+        @Test
+        @DisplayName("Should find negative number")
+        void shouldFindNegativeNumber() {
+            int[] input = {-5, 0, 5};
+            assertTrue(arrayContains.contains(input, -5));
         }
     }
 
@@ -46,17 +60,29 @@ class ArrayContainsTest {
     @DisplayName("Edge Cases")
     class EdgeCases {
         @Test
-        @DisplayName("Should handle edge case 1")
-        void shouldHandleEdgeCase1() {
-            // TODO: Add appropriate edge case test
-            assertDoesNotThrow(() -> arraycontains.contains(null));
+        @DisplayName("Should return false for null array")
+        void shouldReturnFalseForNullArray() {
+            assertFalse(arrayContains.contains(null, 1));
         }
 
         @Test
-        @DisplayName("Should handle edge case 2")
-        void shouldHandleEdgeCase2() {
-            // TODO: Add appropriate edge case test
-            assertDoesNotThrow(() -> arraycontains.contains(null));
+        @DisplayName("Should return false for empty array")
+        void shouldReturnFalseForEmptyArray() {
+            assertFalse(arrayContains.contains(new int[]{}, 1));
+        }
+
+        @Test
+        @DisplayName("Should find zero")
+        void shouldFindZero() {
+            int[] input = {1, 0, -1};
+            assertTrue(arrayContains.contains(input, 0));
+        }
+
+        @Test
+        @DisplayName("Should find in single element array")
+        void shouldFindInSingleElementArray() {
+            int[] input = {42};
+            assertTrue(arrayContains.contains(input, 42));
         }
     }
 
@@ -64,10 +90,12 @@ class ArrayContainsTest {
     @DisplayName("Negative Test Cases")
     class NegativeTests {
         @Test
-        @DisplayName("Should throw exception for invalid input")
-        void shouldThrowExceptionForInvalidInput() {
-            // TODO: Add appropriate negative test
-            assertThrows(Exception.class, () -> arraycontains.contains(null));
+        @DisplayName("Should not modify original array")
+        void shouldNotModifyOriginalArray() {
+            int[] input = {1, 2, 3};
+            int[] original = input.clone();
+            arrayContains.contains(input, 2);
+            assertArrayEquals(original, input);
         }
     }
 }

@@ -4,41 +4,55 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.NullAndEmptySource;
-import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Day 01 - ArraySecondLargest Tests")
 class ArraySecondLargestTest {
 
-    private ArraySecondLargest arraysecondlargest;
+    private ArraySecondLargest arraySecondLargest;
 
     @BeforeEach
     void setUp() {
-        arraysecondlargest = new ArraySecondLargest();
+        arraySecondLargest = new ArraySecondLargest();
     }
 
     @Nested
     @DisplayName("Positive Test Cases")
     class PositiveTests {
- 
         @Test
         @DisplayName("Should find second largest")
         void shouldFindSecondLargest() {
             int[] input = {10, 20, 30, 40};
-            assertThat(${class_name,,}.findSecondLargest(input)).isEqualTo(30);
+            assertEquals(30, arraySecondLargest.findSecondLargest(input));
         }
 
         @Test
         @DisplayName("Should handle duplicates")
         void shouldHandleDuplicates() {
             int[] input = {10, 10, 20, 20, 30};
-            assertThat(${class_name,,}.findSecondLargest(input)).isEqualTo(20);
+            assertEquals(20, arraySecondLargest.findSecondLargest(input));
+        }
+
+        @Test
+        @DisplayName("Should find second largest when not sorted")
+        void shouldFindSecondLargestWhenNotSorted() {
+            int[] input = {5, 1, 4, 2, 3};
+            assertEquals(4, arraySecondLargest.findSecondLargest(input));
+        }
+
+        @Test
+        @DisplayName("Should handle negative numbers")
+        void shouldHandleNegativeNumbers() {
+            int[] input = {-10, -20, -30, -5};
+            assertEquals(-10, arraySecondLargest.findSecondLargest(input));
+        }
+
+        @Test
+        @DisplayName("Should handle second largest at start")
+        void shouldHandleSecondLargestAtStart() {
+            int[] input = {30, 40, 10, 20};
+            assertEquals(30, arraySecondLargest.findSecondLargest(input));
         }
     }
 
@@ -46,17 +60,24 @@ class ArraySecondLargestTest {
     @DisplayName("Edge Cases")
     class EdgeCases {
         @Test
-        @DisplayName("Should handle edge case 1")
-        void shouldHandleEdgeCase1() {
-            // TODO: Add appropriate edge case test
-            assertDoesNotThrow(() -> arraysecondlargest.findSecondLargest(null));
+        @DisplayName("Should throw exception for array with less than 2 elements")
+        void shouldThrowForLessThanTwoElements() {
+            assertThrows(IllegalArgumentException.class,
+                () -> arraySecondLargest.findSecondLargest(new int[]{1}));
         }
 
         @Test
-        @DisplayName("Should handle edge case 2")
-        void shouldHandleEdgeCase2() {
-            // TODO: Add appropriate edge case test
-            assertDoesNotThrow(() -> arraysecondlargest.findSecondLargest(null));
+        @DisplayName("Should throw exception for null array")
+        void shouldThrowForNullArray() {
+            assertThrows(IllegalArgumentException.class,
+                () -> arraySecondLargest.findSecondLargest(null));
+        }
+
+        @Test
+        @DisplayName("Should throw exception when all elements are same")
+        void shouldThrowWhenAllElementsSame() {
+            assertThrows(IllegalArgumentException.class,
+                () -> arraySecondLargest.findSecondLargest(new int[]{5, 5, 5}));
         }
     }
 
@@ -64,10 +85,12 @@ class ArraySecondLargestTest {
     @DisplayName("Negative Test Cases")
     class NegativeTests {
         @Test
-        @DisplayName("Should throw exception for invalid input")
-        void shouldThrowExceptionForInvalidInput() {
-            // TODO: Add appropriate negative test
-            assertThrows(Exception.class, () -> arraysecondlargest.findSecondLargest(null));
+        @DisplayName("Should not modify original array")
+        void shouldNotModifyOriginalArray() {
+            int[] input = {10, 20, 30, 40};
+            int[] original = input.clone();
+            arraySecondLargest.findSecondLargest(input);
+            assertArrayEquals(original, input);
         }
     }
 }

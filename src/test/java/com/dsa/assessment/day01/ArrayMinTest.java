@@ -4,41 +4,55 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.NullAndEmptySource;
-import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Day 01 - ArrayMin Tests")
 class ArrayMinTest {
 
-    private ArrayMin arraymin;
+    private ArrayMin arrayMin;
 
     @BeforeEach
     void setUp() {
-        arraymin = new ArrayMin();
+        arrayMin = new ArrayMin();
     }
 
     @Nested
     @DisplayName("Positive Test Cases")
     class PositiveTests {
- 
         @Test
         @DisplayName("Should find minimum in array")
         void shouldFindMinimumInArray() {
             int[] input = {3, 7, 2, 9, 1};
-            assertThat(${class_name,,}.findMin(input)).isEqualTo(1);
+            assertEquals(1, arrayMin.findMin(input));
         }
 
         @Test
         @DisplayName("Should handle negative numbers")
         void shouldHandleNegativeNumbers() {
             int[] input = {-5, -2, -8, -1};
-            assertThat(${class_name,,}.findMin(input)).isEqualTo(-8);
+            assertEquals(-8, arrayMin.findMin(input));
+        }
+
+        @Test
+        @DisplayName("Should handle single element")
+        void shouldHandleSingleElement() {
+            int[] input = {100};
+            assertEquals(100, arrayMin.findMin(input));
+        }
+
+        @Test
+        @DisplayName("Should find min at first position")
+        void shouldFindMinAtFirstPosition() {
+            int[] input = {1, 50, 100, 200};
+            assertEquals(1, arrayMin.findMin(input));
+        }
+
+        @Test
+        @DisplayName("Should find min at last position")
+        void shouldFindMinAtLastPosition() {
+            int[] input = {200, 100, 50, 1};
+            assertEquals(1, arrayMin.findMin(input));
         }
     }
 
@@ -46,17 +60,22 @@ class ArrayMinTest {
     @DisplayName("Edge Cases")
     class EdgeCases {
         @Test
-        @DisplayName("Should handle edge case 1")
-        void shouldHandleEdgeCase1() {
-            // TODO: Add appropriate edge case test
-            assertDoesNotThrow(() -> arraymin.findMin(null));
+        @DisplayName("Should handle null input")
+        void shouldHandleNullInput() {
+            assertDoesNotThrow(() -> arrayMin.findMin(null));
         }
 
         @Test
-        @DisplayName("Should handle edge case 2")
-        void shouldHandleEdgeCase2() {
-            // TODO: Add appropriate edge case test
-            assertDoesNotThrow(() -> arraymin.findMin(null));
+        @DisplayName("Should handle empty array")
+        void shouldHandleEmptyArray() {
+            assertDoesNotThrow(() -> arrayMin.findMin(new int[]{}));
+        }
+
+        @Test
+        @DisplayName("Should handle duplicate min values")
+        void shouldHandleDuplicateMinValues() {
+            int[] input = {5, 5, 5, 5};
+            assertEquals(5, arrayMin.findMin(input));
         }
     }
 
@@ -64,10 +83,12 @@ class ArrayMinTest {
     @DisplayName("Negative Test Cases")
     class NegativeTests {
         @Test
-        @DisplayName("Should throw exception for invalid input")
-        void shouldThrowExceptionForInvalidInput() {
-            // TODO: Add appropriate negative test
-            assertThrows(Exception.class, () -> arraymin.findMin(null));
+        @DisplayName("Should not modify original array")
+        void shouldNotModifyOriginalArray() {
+            int[] input = {3, 7, 2, 9, 1};
+            int[] original = input.clone();
+            arrayMin.findMin(input);
+            assertArrayEquals(original, input);
         }
     }
 }

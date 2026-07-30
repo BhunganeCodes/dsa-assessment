@@ -4,36 +4,60 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.NullAndEmptySource;
-import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Day 01 - ArrayCopy Tests")
 class ArrayCopyTest {
 
-    private ArrayCopy arraycopy;
+    private ArrayCopy arrayCopy;
 
     @BeforeEach
     void setUp() {
-        arraycopy = new ArrayCopy();
+        arrayCopy = new ArrayCopy();
     }
 
     @Nested
     @DisplayName("Positive Test Cases")
     class PositiveTests {
- 
         @Test
         @DisplayName("Should copy array")
         void shouldCopyArray() {
             int[] input = {1, 2, 3};
-            int[] result = ${class_name,,}.copy(input);
-            assertThat(result).containsExactly(1, 2, 3);
-            assertThat(result).isNotSameAs(input);
+            int[] result = arrayCopy.copy(input);
+            assertArrayEquals(input, result);
+        }
+
+        @Test
+        @DisplayName("Should return different reference")
+        void shouldReturnDifferentReference() {
+            int[] input = {1, 2, 3};
+            int[] result = arrayCopy.copy(input);
+            assertNotSame(input, result);
+        }
+
+        @Test
+        @DisplayName("Should handle empty array")
+        void shouldHandleEmptyArray() {
+            int[] input = {};
+            int[] result = arrayCopy.copy(input);
+            assertArrayEquals(new int[]{}, result);
+        }
+
+        @Test
+        @DisplayName("Should copy negative numbers")
+        void shouldCopyNegativeNumbers() {
+            int[] input = {-1, -2, -3};
+            int[] result = arrayCopy.copy(input);
+            assertArrayEquals(input, result);
+        }
+
+        @Test
+        @DisplayName("Should handle single element")
+        void shouldHandleSingleElement() {
+            int[] input = {42};
+            int[] result = arrayCopy.copy(input);
+            assertArrayEquals(input, result);
         }
     }
 
@@ -41,17 +65,18 @@ class ArrayCopyTest {
     @DisplayName("Edge Cases")
     class EdgeCases {
         @Test
-        @DisplayName("Should handle edge case 1")
-        void shouldHandleEdgeCase1() {
-            // TODO: Add appropriate edge case test
-            assertDoesNotThrow(() -> arraycopy.copy(null));
+        @DisplayName("Should handle null input")
+        void shouldHandleNullInput() {
+            assertNull(arrayCopy.copy(null));
         }
 
         @Test
-        @DisplayName("Should handle edge case 2")
-        void shouldHandleEdgeCase2() {
-            // TODO: Add appropriate edge case test
-            assertDoesNotThrow(() -> arraycopy.copy(null));
+        @DisplayName("Modifying copy should not affect original")
+        void modifyingCopyShouldNotAffectOriginal() {
+            int[] input = {1, 2, 3};
+            int[] copy = arrayCopy.copy(input);
+            copy[0] = 999;
+            assertEquals(1, input[0]);
         }
     }
 
@@ -59,10 +84,9 @@ class ArrayCopyTest {
     @DisplayName("Negative Test Cases")
     class NegativeTests {
         @Test
-        @DisplayName("Should throw exception for invalid input")
-        void shouldThrowExceptionForInvalidInput() {
-            // TODO: Add appropriate negative test
-            assertThrows(Exception.class, () -> arraycopy.copy(null));
+        @DisplayName("Should not throw exception for null input")
+        void shouldNotThrowForNullInput() {
+            assertDoesNotThrow(() -> arrayCopy.copy(null));
         }
     }
 }

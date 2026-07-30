@@ -4,41 +4,41 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.NullAndEmptySource;
-import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Day 02 - LastOccurrence Tests")
 class LastOccurrenceTest {
 
-    private LastOccurrence lastoccurrence;
+    private LastOccurrence lastOccurrence;
 
     @BeforeEach
     void setUp() {
-        lastoccurrence = new LastOccurrence();
+        lastOccurrence = new LastOccurrence();
     }
 
     @Nested
     @DisplayName("Positive Test Cases")
     class PositiveTests {
- 
         @Test
         @DisplayName("Should find last occurrence")
         void shouldFindLastOccurrence() {
             int[] input = {1, 2, 2, 2, 3, 4};
-            assertThat(${class_name,,}.findLast(input, 2)).isEqualTo(3);
+            assertEquals(3, lastOccurrence.findLast(input, 2));
         }
 
         @Test
         @DisplayName("Should handle single occurrence")
         void shouldHandleSingleOccurrence() {
             int[] input = {1, 2, 3, 4, 5};
-            assertThat(${class_name,,}.findLast(input, 3)).isEqualTo(2);
+            assertEquals(2, lastOccurrence.findLast(input, 3));
+        }
+
+        @Test
+        @DisplayName("Should find at end with duplicates")
+        void shouldFindAtEndWithDuplicates() {
+            int[] input = {1, 2, 3, 3, 3};
+            assertEquals(4, lastOccurrence.findLast(input, 3));
         }
     }
 
@@ -46,17 +46,22 @@ class LastOccurrenceTest {
     @DisplayName("Edge Cases")
     class EdgeCases {
         @Test
-        @DisplayName("Should handle edge case 1")
-        void shouldHandleEdgeCase1() {
-            // TODO: Add appropriate edge case test
-            assertDoesNotThrow(() -> lastoccurrence.findLast(null));
+        @DisplayName("Should return -1 for non-existent")
+        void shouldReturnMinusOneForNonExistent() {
+            int[] input = {1, 2, 3, 4};
+            assertEquals(-1, lastOccurrence.findLast(input, 5));
         }
 
         @Test
-        @DisplayName("Should handle edge case 2")
-        void shouldHandleEdgeCase2() {
-            // TODO: Add appropriate edge case test
-            assertDoesNotThrow(() -> lastoccurrence.findLast(null));
+        @DisplayName("Should handle null array")
+        void shouldHandleNullArray() {
+            assertEquals(-1, lastOccurrence.findLast(null, 5));
+        }
+
+        @Test
+        @DisplayName("Should handle empty array")
+        void shouldHandleEmptyArray() {
+            assertEquals(-1, lastOccurrence.findLast(new int[]{}, 5));
         }
     }
 
@@ -64,10 +69,12 @@ class LastOccurrenceTest {
     @DisplayName("Negative Test Cases")
     class NegativeTests {
         @Test
-        @DisplayName("Should throw exception for invalid input")
-        void shouldThrowExceptionForInvalidInput() {
-            // TODO: Add appropriate negative test
-            assertThrows(Exception.class, () -> lastoccurrence.findLast(null));
+        @DisplayName("Should not modify original array")
+        void shouldNotModifyOriginalArray() {
+            int[] input = {1, 2, 2, 2, 3};
+            int[] original = input.clone();
+            lastOccurrence.findLast(input, 2);
+            assertArrayEquals(original, input);
         }
     }
 }

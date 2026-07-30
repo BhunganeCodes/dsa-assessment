@@ -4,39 +4,50 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.NullAndEmptySource;
-import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Day 01 - StringTrim Tests")
 class StringTrimTest {
 
-    private StringTrim stringtrim;
+    private StringTrim stringTrim;
 
     @BeforeEach
     void setUp() {
-        stringtrim = new StringTrim();
+        stringTrim = new StringTrim();
     }
 
     @Nested
     @DisplayName("Positive Test Cases")
     class PositiveTests {
- 
         @Test
-        @DisplayName("Should trim whitespace")
-        void shouldTrimWhitespace() {
-            assertThat(${class_name,,}.trim("  hello  ")).isEqualTo("hello");
+        @DisplayName("Should trim whitespace from both ends")
+        void shouldTrimWhitespaceFromBothEnds() {
+            assertEquals("hello", stringTrim.trim("  hello  "));
         }
 
         @Test
         @DisplayName("Should handle no whitespace")
         void shouldHandleNoWhitespace() {
-            assertThat(${class_name,,}.trim("hello")).isEqualTo("hello");
+            assertEquals("hello", stringTrim.trim("hello"));
+        }
+
+        @Test
+        @DisplayName("Should trim leading whitespace only")
+        void shouldTrimLeadingWhitespaceOnly() {
+            assertEquals("hello", stringTrim.trim("   hello"));
+        }
+
+        @Test
+        @DisplayName("Should trim trailing whitespace only")
+        void shouldTrimTrailingWhitespaceOnly() {
+            assertEquals("hello", stringTrim.trim("hello   "));
+        }
+
+        @Test
+        @DisplayName("Should handle empty string")
+        void shouldHandleEmptyString() {
+            assertEquals("", stringTrim.trim(""));
         }
     }
 
@@ -44,17 +55,27 @@ class StringTrimTest {
     @DisplayName("Edge Cases")
     class EdgeCases {
         @Test
-        @DisplayName("Should handle edge case 1")
-        void shouldHandleEdgeCase1() {
-            // TODO: Add appropriate edge case test
-            assertDoesNotThrow(() -> stringtrim.trim(null));
+        @DisplayName("Should handle null input")
+        void shouldHandleNullInput() {
+            assertNull(stringTrim.trim(null));
         }
 
         @Test
-        @DisplayName("Should handle edge case 2")
-        void shouldHandleEdgeCase2() {
-            // TODO: Add appropriate edge case test
-            assertDoesNotThrow(() -> stringtrim.trim(null));
+        @DisplayName("Should handle only whitespace")
+        void shouldHandleOnlyWhitespace() {
+            assertEquals("", stringTrim.trim("     "));
+        }
+
+        @Test
+        @DisplayName("Should not trim internal spaces")
+        void shouldNotTrimInternalSpaces() {
+            assertEquals("hello world", stringTrim.trim("  hello world  "));
+        }
+
+        @Test
+        @DisplayName("Should handle tabs and newlines")
+        void shouldHandleTabsAndNewlines() {
+            assertEquals("hello", stringTrim.trim("\t\nhello\n\t"));
         }
     }
 
@@ -62,10 +83,9 @@ class StringTrimTest {
     @DisplayName("Negative Test Cases")
     class NegativeTests {
         @Test
-        @DisplayName("Should throw exception for invalid input")
-        void shouldThrowExceptionForInvalidInput() {
-            // TODO: Add appropriate negative test
-            assertThrows(Exception.class, () -> stringtrim.trim(null));
+        @DisplayName("Should not throw exception for null input")
+        void shouldNotThrowForNullInput() {
+            assertDoesNotThrow(() -> stringTrim.trim(null));
         }
     }
 }

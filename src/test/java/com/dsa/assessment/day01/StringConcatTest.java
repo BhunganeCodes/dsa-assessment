@@ -4,40 +4,54 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.NullAndEmptySource;
-import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Day 01 - StringConcat Tests")
 class StringConcatTest {
 
-    private StringConcat stringconcat;
+    private StringConcat stringConcat;
 
     @BeforeEach
     void setUp() {
-        stringconcat = new StringConcat();
+        stringConcat = new StringConcat();
     }
 
     @Nested
     @DisplayName("Positive Test Cases")
     class PositiveTests {
- 
         @Test
         @DisplayName("Should concatenate strings")
         void shouldConcatenateStrings() {
             String[] input = {"Hello", " ", "World"};
-            assertThat(${class_name,,}.concat(input)).isEqualTo("Hello World");
+            assertEquals("Hello World", stringConcat.concat(input));
         }
 
         @Test
         @DisplayName("Should handle empty array")
         void shouldHandleEmptyArray() {
-            assertThat(${class_name,,}.concat(new String[]{})).isEmpty();
+            assertEquals("", stringConcat.concat(new String[]{}));
+        }
+
+        @Test
+        @DisplayName("Should handle single string")
+        void shouldHandleSingleString() {
+            String[] input = {"Hello"};
+            assertEquals("Hello", stringConcat.concat(input));
+        }
+
+        @Test
+        @DisplayName("Should concatenate multiple strings")
+        void shouldConcatenateMultipleStrings() {
+            String[] input = {"a", "b", "c", "d"};
+            assertEquals("abcd", stringConcat.concat(input));
+        }
+
+        @Test
+        @DisplayName("Should handle empty strings in array")
+        void shouldHandleEmptyStringsInArray() {
+            String[] input = {"a", "", "b", ""};
+            assertEquals("ab", stringConcat.concat(input));
         }
     }
 
@@ -45,17 +59,23 @@ class StringConcatTest {
     @DisplayName("Edge Cases")
     class EdgeCases {
         @Test
-        @DisplayName("Should handle edge case 1")
-        void shouldHandleEdgeCase1() {
-            // TODO: Add appropriate edge case test
-            assertDoesNotThrow(() -> stringconcat.concat(null));
+        @DisplayName("Should handle null array")
+        void shouldHandleNullArray() {
+            assertEquals("", stringConcat.concat(null));
         }
 
         @Test
-        @DisplayName("Should handle edge case 2")
-        void shouldHandleEdgeCase2() {
-            // TODO: Add appropriate edge case test
-            assertDoesNotThrow(() -> stringconcat.concat(null));
+        @DisplayName("Should handle null elements in array")
+        void shouldHandleNullElementsInArray() {
+            String[] input = {"a", null, "b"};
+            assertDoesNotThrow(() -> stringConcat.concat(input));
+        }
+
+        @Test
+        @DisplayName("Should handle special characters")
+        void shouldHandleSpecialCharacters() {
+            String[] input = {"!", "@", "#"};
+            assertEquals("!@#", stringConcat.concat(input));
         }
     }
 
@@ -63,10 +83,9 @@ class StringConcatTest {
     @DisplayName("Negative Test Cases")
     class NegativeTests {
         @Test
-        @DisplayName("Should throw exception for invalid input")
-        void shouldThrowExceptionForInvalidInput() {
-            // TODO: Add appropriate negative test
-            assertThrows(Exception.class, () -> stringconcat.concat(null));
+        @DisplayName("Should not throw exception for empty array")
+        void shouldNotThrowForEmptyArray() {
+            assertDoesNotThrow(() -> stringConcat.concat(new String[]{}));
         }
     }
 }

@@ -4,39 +4,50 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.NullAndEmptySource;
-import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Day 01 - StringUpperCase Tests")
 class StringUpperCaseTest {
 
-    private StringUpperCase stringuppercase;
+    private StringUpperCase stringUpperCase;
 
     @BeforeEach
     void setUp() {
-        stringuppercase = new StringUpperCase();
+        stringUpperCase = new StringUpperCase();
     }
 
     @Nested
     @DisplayName("Positive Test Cases")
     class PositiveTests {
- 
         @Test
         @DisplayName("Should convert to uppercase")
         void shouldConvertToUpperCase() {
-            assertThat(${class_name,,}.toUpper("hello")).isEqualTo("HELLO");
+            assertEquals("HELLO", stringUpperCase.toUpper("hello"));
         }
 
         @Test
         @DisplayName("Should handle already uppercase")
         void shouldHandleAlreadyUppercase() {
-            assertThat(${class_name,,}.toUpper("HELLO")).isEqualTo("HELLO");
+            assertEquals("HELLO", stringUpperCase.toUpper("HELLO"));
+        }
+
+        @Test
+        @DisplayName("Should handle mixed case")
+        void shouldHandleMixedCase() {
+            assertEquals("HELLO WORLD", stringUpperCase.toUpper("HeLLo WoRLd"));
+        }
+
+        @Test
+        @DisplayName("Should handle empty string")
+        void shouldHandleEmptyString() {
+            assertEquals("", stringUpperCase.toUpper(""));
+        }
+
+        @Test
+        @DisplayName("Should handle single character")
+        void shouldHandleSingleCharacter() {
+            assertEquals("A", stringUpperCase.toUpper("a"));
         }
     }
 
@@ -44,17 +55,27 @@ class StringUpperCaseTest {
     @DisplayName("Edge Cases")
     class EdgeCases {
         @Test
-        @DisplayName("Should handle edge case 1")
-        void shouldHandleEdgeCase1() {
-            // TODO: Add appropriate edge case test
-            assertDoesNotThrow(() -> stringuppercase.toUpper(null));
+        @DisplayName("Should handle null input")
+        void shouldHandleNullInput() {
+            assertNull(stringUpperCase.toUpper(null));
         }
 
         @Test
-        @DisplayName("Should handle edge case 2")
-        void shouldHandleEdgeCase2() {
-            // TODO: Add appropriate edge case test
-            assertDoesNotThrow(() -> stringuppercase.toUpper(null));
+        @DisplayName("Should handle numbers (unchanged)")
+        void shouldHandleNumbersUnchanged() {
+            assertEquals("123", stringUpperCase.toUpper("123"));
+        }
+
+        @Test
+        @DisplayName("Should handle special characters (unchanged)")
+        void shouldHandleSpecialCharactersUnchanged() {
+            assertEquals("!@#", stringUpperCase.toUpper("!@#"));
+        }
+
+        @Test
+        @DisplayName("Should handle spaces")
+        void shouldHandleSpaces() {
+            assertEquals("A B C", stringUpperCase.toUpper("a b c"));
         }
     }
 
@@ -62,10 +83,9 @@ class StringUpperCaseTest {
     @DisplayName("Negative Test Cases")
     class NegativeTests {
         @Test
-        @DisplayName("Should throw exception for invalid input")
-        void shouldThrowExceptionForInvalidInput() {
-            // TODO: Add appropriate negative test
-            assertThrows(Exception.class, () -> stringuppercase.toUpper(null));
+        @DisplayName("Should not throw exception for null input")
+        void shouldNotThrowForNullInput() {
+            assertDoesNotThrow(() -> stringUpperCase.toUpper(null));
         }
     }
 }

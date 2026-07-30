@@ -5,50 +5,52 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Day 01 - StringPalindrome Tests")
 class StringPalindromeTest {
 
-    private StringPalindrome stringpalindrome;
+    private StringPalindrome stringPalindrome;
 
     @BeforeEach
     void setUp() {
-        stringpalindrome = new StringPalindrome();
+        stringPalindrome = new StringPalindrome();
     }
 
     @Nested
     @DisplayName("Positive Test Cases")
     class PositiveTests {
- 
         @Test
         @DisplayName("Should return true for palindrome")
         void shouldReturnTrueForPalindrome() {
-            assertThat(${class_name,,}.isPalindrome("racecar")).isTrue();
+            assertTrue(stringPalindrome.isPalindrome("racecar"));
         }
 
         @Test
         @DisplayName("Should return false for non-palindrome")
         void shouldReturnFalseForNonPalindrome() {
-            assertThat(${class_name,,}.isPalindrome("hello")).isFalse();
+            assertFalse(stringPalindrome.isPalindrome("hello"));
         }
 
         @Test
         @DisplayName("Should handle empty string")
         void shouldHandleEmptyString() {
-            assertThat(${class_name,,}.isPalindrome("")).isTrue();
+            assertTrue(stringPalindrome.isPalindrome(""));
         }
 
         @Test
-        @DisplayName("Should be case insensitive")
-        void shouldBeCaseInsensitive() {
-            assertThat(${class_name,,}.isPalindrome("RaceCar")).isTrue();
+        @DisplayName("Should handle single character")
+        void shouldHandleSingleCharacter() {
+            assertTrue(stringPalindrome.isPalindrome("a"));
+        }
+
+        @ParameterizedTest
+        @ValueSource(strings = {"madam", "level", "rotor", "civic", "radar"})
+        @DisplayName("Should return true for known palindromes")
+        void shouldReturnTrueForKnownPalindromes(String input) {
+            assertTrue(stringPalindrome.isPalindrome(input));
         }
     }
 
@@ -56,17 +58,33 @@ class StringPalindromeTest {
     @DisplayName("Edge Cases")
     class EdgeCases {
         @Test
-        @DisplayName("Should handle edge case 1")
-        void shouldHandleEdgeCase1() {
-            // TODO: Add appropriate edge case test
-            assertDoesNotThrow(() -> stringpalindrome.isPalindrome(null));
+        @DisplayName("Should be case insensitive")
+        void shouldBeCaseInsensitive() {
+            assertTrue(stringPalindrome.isPalindrome("RaceCar"));
         }
 
         @Test
-        @DisplayName("Should handle edge case 2")
-        void shouldHandleEdgeCase2() {
-            // TODO: Add appropriate edge case test
-            assertDoesNotThrow(() -> stringpalindrome.isPalindrome(null));
+        @DisplayName("Should handle null input")
+        void shouldHandleNullInput() {
+            assertFalse(stringPalindrome.isPalindrome(null));
+        }
+
+        @Test
+        @DisplayName("Should handle string with spaces")
+        void shouldHandleStringWithSpaces() {
+            assertFalse(stringPalindrome.isPalindrome("race car"));
+        }
+
+        @Test
+        @DisplayName("Should handle two same characters")
+        void shouldHandleTwoSameCharacters() {
+            assertTrue(stringPalindrome.isPalindrome("aa"));
+        }
+
+        @Test
+        @DisplayName("Should handle two different characters")
+        void shouldHandleTwoDifferentCharacters() {
+            assertFalse(stringPalindrome.isPalindrome("ab"));
         }
     }
 
@@ -74,10 +92,9 @@ class StringPalindromeTest {
     @DisplayName("Negative Test Cases")
     class NegativeTests {
         @Test
-        @DisplayName("Should throw exception for invalid input")
-        void shouldThrowExceptionForInvalidInput() {
-            // TODO: Add appropriate negative test
-            assertThrows(Exception.class, () -> stringpalindrome.isPalindrome(null));
+        @DisplayName("Should return false for almost palindrome")
+        void shouldReturnFalseForAlmostPalindrome() {
+            assertFalse(stringPalindrome.isPalindrome("racecat"));
         }
     }
 }

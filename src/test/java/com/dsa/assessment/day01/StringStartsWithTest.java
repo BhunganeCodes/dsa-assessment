@@ -4,39 +4,50 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.NullAndEmptySource;
-import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Day 01 - StringStartsWith Tests")
 class StringStartsWithTest {
 
-    private StringStartsWith stringstartswith;
+    private StringStartsWith stringStartsWith;
 
     @BeforeEach
     void setUp() {
-        stringstartswith = new StringStartsWith();
+        stringStartsWith = new StringStartsWith();
     }
 
     @Nested
     @DisplayName("Positive Test Cases")
     class PositiveTests {
- 
         @Test
         @DisplayName("Should return true for matching prefix")
         void shouldReturnTrueForMatchingPrefix() {
-            assertThat(${class_name,,}.startsWith("hello world", "hello")).isTrue();
+            assertTrue(stringStartsWith.startsWith("hello world", "hello"));
         }
 
         @Test
         @DisplayName("Should return false for non-matching prefix")
         void shouldReturnFalseForNonMatchingPrefix() {
-            assertThat(${class_name,,}.startsWith("hello world", "world")).isFalse();
+            assertFalse(stringStartsWith.startsWith("hello world", "world"));
+        }
+
+        @Test
+        @DisplayName("Should return true for empty prefix")
+        void shouldReturnTrueForEmptyPrefix() {
+            assertTrue(stringStartsWith.startsWith("hello", ""));
+        }
+
+        @Test
+        @DisplayName("Should return true for full string match")
+        void shouldReturnTrueForFullStringMatch() {
+            assertTrue(stringStartsWith.startsWith("hello", "hello"));
+        }
+
+        @Test
+        @DisplayName("Should return false for prefix longer than string")
+        void shouldReturnFalseForPrefixLongerThanString() {
+            assertFalse(stringStartsWith.startsWith("hi", "hello"));
         }
     }
 
@@ -44,17 +55,33 @@ class StringStartsWithTest {
     @DisplayName("Edge Cases")
     class EdgeCases {
         @Test
-        @DisplayName("Should handle edge case 1")
-        void shouldHandleEdgeCase1() {
-            // TODO: Add appropriate edge case test
-            assertDoesNotThrow(() -> stringstartswith.startsWith(null));
+        @DisplayName("Should handle null string")
+        void shouldHandleNullString() {
+            assertFalse(stringStartsWith.startsWith(null, "hello"));
         }
 
         @Test
-        @DisplayName("Should handle edge case 2")
-        void shouldHandleEdgeCase2() {
-            // TODO: Add appropriate edge case test
-            assertDoesNotThrow(() -> stringstartswith.startsWith(null));
+        @DisplayName("Should handle null prefix")
+        void shouldHandleNullPrefix() {
+            assertFalse(stringStartsWith.startsWith("hello", null));
+        }
+
+        @Test
+        @DisplayName("Should handle both null")
+        void shouldHandleBothNull() {
+            assertFalse(stringStartsWith.startsWith(null, null));
+        }
+
+        @Test
+        @DisplayName("Should be case sensitive")
+        void shouldBeCaseSensitive() {
+            assertFalse(stringStartsWith.startsWith("Hello", "hello"));
+        }
+
+        @Test
+        @DisplayName("Should handle empty string with empty prefix")
+        void shouldHandleEmptyStringWithEmptyPrefix() {
+            assertTrue(stringStartsWith.startsWith("", ""));
         }
     }
 
@@ -62,10 +89,9 @@ class StringStartsWithTest {
     @DisplayName("Negative Test Cases")
     class NegativeTests {
         @Test
-        @DisplayName("Should throw exception for invalid input")
-        void shouldThrowExceptionForInvalidInput() {
-            // TODO: Add appropriate negative test
-            assertThrows(Exception.class, () -> stringstartswith.startsWith(null));
+        @DisplayName("Should not throw exception for null inputs")
+        void shouldNotThrowForNullInputs() {
+            assertDoesNotThrow(() -> stringStartsWith.startsWith(null, null));
         }
     }
 }
