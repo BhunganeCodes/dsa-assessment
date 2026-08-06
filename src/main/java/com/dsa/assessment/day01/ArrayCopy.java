@@ -19,6 +19,11 @@ public class ArrayCopy {
      */
     public int[] copy(int[] array) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement copy(int[] array)");
+        if (array == null) return null;
+        int[] newArr = new int[array.length];
+        for (int i=0; i< array.length; i++) {
+            newArr[i] = array[i];
+        }
+        return newArr;
     }
 }
