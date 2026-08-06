@@ -19,6 +19,13 @@ public class ArrayMax {
      */
     public int findMax(int[] array) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement findMax(int[] array)");
+        int res = array[0];
+
+        for (int num : array) {
+            if (num > res) {
+                res = num;
+            }
+        }
+        return res;
     }
 }
