@@ -19,6 +19,11 @@ public class ArrayIndexOf {
      */
     public int indexOf(int[] array, int target) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement indexOf(int[] array, int target)");
+        if (array == null) return -1;
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == target) return i;
+        }
+        return -1;
     }
 }
