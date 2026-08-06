@@ -19,6 +19,10 @@ public class ArrayContains {
      */
     public boolean contains(int[] array, int target) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement contains(int[] array, int target)");
+        if (array == null) return false;
+        for (int num : array) {
+            if (target == num) return true;
+        }
+        return false;
     }
 }
