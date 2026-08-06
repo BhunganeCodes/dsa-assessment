@@ -19,6 +19,10 @@ public class ArrayFill {
      */
     public int[] fill(int size, int value) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement fill(int size, int value)");
+        int[] result = new int[size];
+        for (int i = 0; i<size; i++) {
+            result[i] = value;
+        }
+        return result;
     }
 }
