@@ -19,6 +19,12 @@ public class ArrayMin {
      */
     public int findMin(int[] array) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement findMin(int[] array)");
+        if (array == null || array.length == 0) return 0;
+        int res = array[0];
+
+        for (int num : array) {
+            if (num < res) res = num;
+        }
+        return res;
     }
 }
