@@ -25,10 +25,15 @@ public class ArraySecondLargest {
        if (array == null || array.length <= 2) throw new IllegalArgumentException();
         Arrays.sort(array);
         int[] res = new int[array.length];
+        boolean allSame = true;
 
         for (int i = 0; i < array.length; i++) {
             res[i] = array[i];
+            if (res[i] != res[0]) {
+                allSame = false;
+            }
         }
+        if (allSame) throw new IllegalArgumentException();
         return res[res.length - 2];
     }
 }
