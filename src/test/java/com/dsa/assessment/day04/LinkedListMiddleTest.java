@@ -23,19 +23,25 @@ class LinkedListMiddleTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> linkedlistmiddle.solve(null));
+            ListNode head = ListNode.fromArray(new int[]{1, 2, 3, 4, 5});
+            ListNode result = linkedlistmiddle.findMiddle(head);
+            assertEquals(3, result.val);
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> linkedlistmiddle.solve(null));
+            ListNode head = ListNode.fromArray(new int[]{1, 2, 3, 4});
+            ListNode result = linkedlistmiddle.findMiddle(head);
+            assertEquals(3, result.val);
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> linkedlistmiddle.solve(null));
+            ListNode head = ListNode.fromArray(new int[]{1, 2, 3});
+            ListNode result = linkedlistmiddle.findMiddle(head);
+            assertEquals(2, result.val);
         }
     }
 
@@ -45,19 +51,21 @@ class LinkedListMiddleTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> linkedlistmiddle.solve(null));
+            assertDoesNotThrow(() -> linkedlistmiddle.findMiddle(null));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> linkedlistmiddle.solve(null));
+            assertDoesNotThrow(() -> linkedlistmiddle.findMiddle(ListNode.fromArray(new int[]{})));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> linkedlistmiddle.solve(null));
+            ListNode head = ListNode.fromArray(new int[]{1});
+            ListNode result = linkedlistmiddle.findMiddle(head);
+            assertEquals(1, result.val);
         }
     }
 
@@ -67,13 +75,13 @@ class LinkedListMiddleTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> linkedlistmiddle.solve(null));
+            assertDoesNotThrow(() -> linkedlistmiddle.findMiddle(ListNode.fromArray(new int[]{1, 2, 3, 4, 5, 6, 7})));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> linkedlistmiddle.solve(null));
+            assertDoesNotThrow(() -> linkedlistmiddle.findMiddle(null));
         }
     }
 }

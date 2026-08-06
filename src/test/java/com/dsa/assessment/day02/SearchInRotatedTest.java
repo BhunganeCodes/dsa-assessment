@@ -23,19 +23,19 @@ class SearchInRotatedTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> searchinrotated.solve(null));
+            assertEquals(4, searchinrotated.search(new int[]{4, 5, 6, 7, 0, 1, 2}, 0));
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> searchinrotated.solve(null));
+            assertEquals(-1, searchinrotated.search(new int[]{4, 5, 6, 7, 0, 1, 2}, 3));
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> searchinrotated.solve(null));
+            assertEquals(1, searchinrotated.search(new int[]{4, 5, 6, 7, 0, 1, 2}, 5));
         }
     }
 
@@ -45,19 +45,19 @@ class SearchInRotatedTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> searchinrotated.solve(null));
+            assertDoesNotThrow(() -> searchinrotated.search(null, 3));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> searchinrotated.solve(null));
+            assertDoesNotThrow(() -> searchinrotated.search(new int[]{}, 3));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> searchinrotated.solve(null));
+            assertEquals(0, searchinrotated.search(new int[]{1}, 1));
         }
     }
 
@@ -67,13 +67,13 @@ class SearchInRotatedTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> searchinrotated.solve(null));
+            assertDoesNotThrow(() -> searchinrotated.search(new int[]{2, 1}, 1));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> searchinrotated.solve(null));
+            assertDoesNotThrow(() -> searchinrotated.search(new int[]{6, 7, 1, 2, 3}, 8));
         }
     }
 }

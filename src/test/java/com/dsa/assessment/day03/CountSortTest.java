@@ -23,19 +23,19 @@ class CountSortTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> countsort.solve(null));
+            assertArrayEquals(new int[]{1, 2, 2, 3, 3, 4, 8}, countsort.sort(new int[]{4, 2, 2, 8, 3, 3, 1}));
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> countsort.solve(null));
+            assertArrayEquals(new int[]{0, 0, 2, 3, 5}, countsort.sort(new int[]{5, 0, 3, 0, 2}));
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> countsort.solve(null));
+            assertArrayEquals(new int[]{1, 2, 3, 4, 5, 6}, countsort.sort(new int[]{6, 2, 4, 1, 5, 3}));
         }
     }
 
@@ -45,19 +45,19 @@ class CountSortTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> countsort.solve(null));
+            assertDoesNotThrow(() -> countsort.sort(null));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> countsort.solve(null));
+            assertDoesNotThrow(() -> countsort.sort(new int[]{}));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> countsort.solve(null));
+            assertArrayEquals(new int[]{2, 2, 2}, countsort.sort(new int[]{2, 2, 2}));
         }
     }
 
@@ -67,13 +67,13 @@ class CountSortTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> countsort.solve(null));
+            assertDoesNotThrow(() -> countsort.sort(new int[]{0, 1, 1, 0, 2, 3}));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> countsort.solve(null));
+            assertDoesNotThrow(() -> countsort.sort(new int[]{9, 3, 1, 5, 0, 2, 8}));
         }
     }
 }

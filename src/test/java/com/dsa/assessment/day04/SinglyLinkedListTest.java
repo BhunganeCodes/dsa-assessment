@@ -23,19 +23,22 @@ class SinglyLinkedListTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> singlylinkedlist.solve(null));
+            ListNode result = singlylinkedlist.insertAtEnd(null, 1);
+            assertArrayEquals(new int[]{1}, result.toArray());
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> singlylinkedlist.solve(null));
+            ListNode result = singlylinkedlist.insertAtEnd(ListNode.fromArray(new int[]{1, 2}), 3);
+            assertArrayEquals(new int[]{1, 2, 3}, result.toArray());
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> singlylinkedlist.solve(null));
+            ListNode result = singlylinkedlist.insertAtEnd(ListNode.fromArray(new int[]{4, 5, 6}), 7);
+            assertArrayEquals(new int[]{4, 5, 6, 7}, result.toArray());
         }
     }
 
@@ -45,19 +48,20 @@ class SinglyLinkedListTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> singlylinkedlist.solve(null));
+            assertDoesNotThrow(() -> singlylinkedlist.insertAtEnd(null, 1));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> singlylinkedlist.solve(null));
+            assertDoesNotThrow(() -> singlylinkedlist.insertAtEnd(ListNode.fromArray(new int[]{}), 2));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> singlylinkedlist.solve(null));
+            ListNode result = singlylinkedlist.insertAtEnd(ListNode.fromArray(new int[]{3}), 4);
+            assertArrayEquals(new int[]{3, 4}, result.toArray());
         }
     }
 
@@ -67,13 +71,13 @@ class SinglyLinkedListTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> singlylinkedlist.solve(null));
+            assertDoesNotThrow(() -> singlylinkedlist.insertAtEnd(ListNode.fromArray(new int[]{1, 2, 3}), 4));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> singlylinkedlist.solve(null));
+            assertDoesNotThrow(() -> singlylinkedlist.insertAtEnd(ListNode.fromArray(new int[]{1}), 2));
         }
     }
 }

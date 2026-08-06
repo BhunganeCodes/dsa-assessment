@@ -23,19 +23,19 @@ class PancakeSortTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> pancakesort.solve(null));
+            assertArrayEquals(new int[]{1, 2, 3, 4}, pancakesort.sort(new int[]{4, 3, 2, 1}));
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> pancakesort.solve(null));
+            assertArrayEquals(new int[]{1, 2, 5, 8, 9}, pancakesort.sort(new int[]{5, 2, 8, 1, 9}));
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> pancakesort.solve(null));
+            assertArrayEquals(new int[]{1, 3, 4, 6, 7, 8}, pancakesort.sort(new int[]{6, 3, 8, 4, 1, 7}));
         }
     }
 
@@ -45,19 +45,19 @@ class PancakeSortTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> pancakesort.solve(null));
+            assertDoesNotThrow(() -> pancakesort.sort(null));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> pancakesort.solve(null));
+            assertDoesNotThrow(() -> pancakesort.sort(new int[]{}));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> pancakesort.solve(null));
+            assertArrayEquals(new int[]{2, 2, 2}, pancakesort.sort(new int[]{2, 2, 2}));
         }
     }
 
@@ -67,13 +67,13 @@ class PancakeSortTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> pancakesort.solve(null));
+            assertDoesNotThrow(() -> pancakesort.sort(new int[]{9, 6, 3, 8, 2, 5}));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> pancakesort.solve(null));
+            assertDoesNotThrow(() -> pancakesort.sort(new int[]{7, 2, 9, 4, 1}));
         }
     }
 }

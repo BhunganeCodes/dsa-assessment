@@ -23,19 +23,19 @@ class SortByFrequencyTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> sortbyfrequency.solve(null));
+            assertArrayEquals(new int[]{3, 1, 1, 2, 2, 2}, sortbyfrequency.sortByFrequency(new int[]{1, 1, 2, 2, 2, 3}));
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> sortbyfrequency.solve(null));
+            assertArrayEquals(new int[]{1, 3, 3, 2, 2}, sortbyfrequency.sortByFrequency(new int[]{2, 3, 1, 3, 2}));
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> sortbyfrequency.solve(null));
+            assertArrayEquals(new int[]{5, -1, 4, -6, 4, -6, 1, 1, 1}, sortbyfrequency.sortByFrequency(new int[]{-1, 1, -6, 4, 5, -6, 1, 4, 1}));
         }
     }
 
@@ -45,19 +45,19 @@ class SortByFrequencyTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> sortbyfrequency.solve(null));
+            assertDoesNotThrow(() -> sortbyfrequency.sortByFrequency(null));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> sortbyfrequency.solve(null));
+            assertDoesNotThrow(() -> sortbyfrequency.sortByFrequency(new int[0]));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> sortbyfrequency.solve(null));
+            assertArrayEquals(new int[]{7, 7, 7}, sortbyfrequency.sortByFrequency(new int[]{7, 7, 7}));
         }
     }
 
@@ -67,13 +67,13 @@ class SortByFrequencyTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> sortbyfrequency.solve(null));
+            assertDoesNotThrow(() -> sortbyfrequency.sortByFrequency(new int[]{1, 2, 1, 2}));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> sortbyfrequency.solve(null));
+            assertDoesNotThrow(() -> sortbyfrequency.sortByFrequency(new int[]{5}));
         }
     }
 }

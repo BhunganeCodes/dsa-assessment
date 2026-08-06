@@ -23,19 +23,19 @@ class SortNearlySortedTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> sortnearlysorted.solve(null));
+            assertArrayEquals(new int[]{2, 3, 5, 6, 8, 9, 10}, sortnearlysorted.sort(new int[]{6, 5, 3, 2, 8, 10, 9}, 3));
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> sortnearlysorted.solve(null));
+            assertArrayEquals(new int[]{1, 2, 3}, sortnearlysorted.sort(new int[]{3, 2, 1}, 2));
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> sortnearlysorted.solve(null));
+            assertArrayEquals(new int[]{2, 3, 6, 8, 12, 56}, sortnearlysorted.sort(new int[]{2, 6, 3, 12, 56, 8}, 3));
         }
     }
 
@@ -45,19 +45,19 @@ class SortNearlySortedTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> sortnearlysorted.solve(null));
+            assertDoesNotThrow(() -> sortnearlysorted.sort(null, 3));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> sortnearlysorted.solve(null));
+            assertDoesNotThrow(() -> sortnearlysorted.sort(new int[0], 3));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> sortnearlysorted.solve(null));
+            assertArrayEquals(new int[]{1, 2, 3}, sortnearlysorted.sort(new int[]{1, 2, 3}, 1));
         }
     }
 
@@ -67,13 +67,13 @@ class SortNearlySortedTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> sortnearlysorted.solve(null));
+            assertDoesNotThrow(() -> sortnearlysorted.sort(new int[]{5, 4, 3, 2, 1}, 2));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> sortnearlysorted.solve(null));
+            assertDoesNotThrow(() -> sortnearlysorted.sort(new int[]{1}, 0));
         }
     }
 }

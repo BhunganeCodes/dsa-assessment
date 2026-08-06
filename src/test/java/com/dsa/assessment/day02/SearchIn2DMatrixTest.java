@@ -23,19 +23,19 @@ class SearchIn2DMatrixTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> searchin2dmatrix.solve(null));
+            assertTrue(searchin2dmatrix.searchMatrix(new int[][]{{1, 3, 5, 7}, {10, 11, 16, 20}, {23, 30, 34, 60}}, 3));
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> searchin2dmatrix.solve(null));
+            assertFalse(searchin2dmatrix.searchMatrix(new int[][]{{1, 3, 5, 7}, {10, 11, 16, 20}, {23, 30, 34, 60}}, 13));
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> searchin2dmatrix.solve(null));
+            assertTrue(searchin2dmatrix.searchMatrix(new int[][]{{1, 3, 5, 7}, {10, 11, 16, 20}, {23, 30, 34, 60}}, 60));
         }
     }
 
@@ -45,19 +45,19 @@ class SearchIn2DMatrixTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> searchin2dmatrix.solve(null));
+            assertDoesNotThrow(() -> searchin2dmatrix.searchMatrix(null, 3));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> searchin2dmatrix.solve(null));
+            assertDoesNotThrow(() -> searchin2dmatrix.searchMatrix(new int[][]{}, 3));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> searchin2dmatrix.solve(null));
+            assertTrue(searchin2dmatrix.searchMatrix(new int[][]{{1}}, 1));
         }
     }
 
@@ -67,13 +67,13 @@ class SearchIn2DMatrixTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> searchin2dmatrix.solve(null));
+            assertDoesNotThrow(() -> searchin2dmatrix.searchMatrix(new int[][]{{1, 2, 3}, {4, 5, 6}}, 5));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> searchin2dmatrix.solve(null));
+            assertDoesNotThrow(() -> searchin2dmatrix.searchMatrix(new int[][]{{2, 4}, {6, 8}}, 10));
         }
     }
 }

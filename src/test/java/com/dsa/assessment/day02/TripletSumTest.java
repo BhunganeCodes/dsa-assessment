@@ -1,5 +1,7 @@
 package com.dsa.assessment.day02;
 
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -23,19 +25,25 @@ class TripletSumTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> tripletsum.solve(null));
+            List<int[]> result = tripletsum.findTriplets(new int[]{-1, 0, 1, 2, -1, -4}, 0);
+            assertNotNull(result);
+            assertEquals(2, result.size());
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> tripletsum.solve(null));
+            List<int[]> result = tripletsum.findTriplets(new int[]{1, 2, 3}, 6);
+            assertNotNull(result);
+            assertEquals(1, result.size());
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> tripletsum.solve(null));
+            List<int[]> result = tripletsum.findTriplets(new int[]{-2, 0, 1, 1, 2}, 0);
+            assertNotNull(result);
+            assertEquals(2, result.size());
         }
     }
 
@@ -45,19 +53,21 @@ class TripletSumTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> tripletsum.solve(null));
+            assertDoesNotThrow(() -> tripletsum.findTriplets(null, 0));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> tripletsum.solve(null));
+            assertDoesNotThrow(() -> tripletsum.findTriplets(new int[]{}, 0));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> tripletsum.solve(null));
+            List<int[]> result = tripletsum.findTriplets(new int[]{1}, 1);
+            assertNotNull(result);
+            assertEquals(0, result.size());
         }
     }
 
@@ -67,13 +77,13 @@ class TripletSumTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> tripletsum.solve(null));
+            assertDoesNotThrow(() -> tripletsum.findTriplets(new int[]{1, 2, 3, 4, 5}, 9));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> tripletsum.solve(null));
+            assertDoesNotThrow(() -> tripletsum.findTriplets(new int[]{-1, 0, 1}, 0));
         }
     }
 }

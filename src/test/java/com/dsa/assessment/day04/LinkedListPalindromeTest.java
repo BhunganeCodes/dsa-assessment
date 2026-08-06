@@ -23,19 +23,22 @@ class LinkedListPalindromeTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> linkedlistpalindrome.solve(null));
+            ListNode head = ListNode.fromArray(new int[]{1, 2, 3, 2, 1});
+            assertTrue(linkedlistpalindrome.isPalindrome(head));
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> linkedlistpalindrome.solve(null));
+            ListNode head = ListNode.fromArray(new int[]{1, 2, 1});
+            assertTrue(linkedlistpalindrome.isPalindrome(head));
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> linkedlistpalindrome.solve(null));
+            ListNode head = ListNode.fromArray(new int[]{1, 2});
+            assertFalse(linkedlistpalindrome.isPalindrome(head));
         }
     }
 
@@ -45,19 +48,20 @@ class LinkedListPalindromeTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> linkedlistpalindrome.solve(null));
+            assertDoesNotThrow(() -> linkedlistpalindrome.isPalindrome(null));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> linkedlistpalindrome.solve(null));
+            assertDoesNotThrow(() -> linkedlistpalindrome.isPalindrome(ListNode.fromArray(new int[]{})));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> linkedlistpalindrome.solve(null));
+            ListNode head = ListNode.fromArray(new int[]{1});
+            assertTrue(linkedlistpalindrome.isPalindrome(head));
         }
     }
 
@@ -67,13 +71,13 @@ class LinkedListPalindromeTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> linkedlistpalindrome.solve(null));
+            assertDoesNotThrow(() -> linkedlistpalindrome.isPalindrome(ListNode.fromArray(new int[]{1, 2, 3, 4, 5, 6, 7})));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> linkedlistpalindrome.solve(null));
+            assertDoesNotThrow(() -> linkedlistpalindrome.isPalindrome(null));
         }
     }
 }

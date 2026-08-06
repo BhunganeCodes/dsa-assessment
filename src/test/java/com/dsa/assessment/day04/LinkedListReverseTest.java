@@ -23,19 +23,22 @@ class LinkedListReverseTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> linkedlistreverse.solve(null));
+            ListNode result = linkedlistreverse.reverse(ListNode.fromArray(new int[]{1, 2, 3}));
+            assertArrayEquals(new int[]{3, 2, 1}, result.toArray());
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> linkedlistreverse.solve(null));
+            ListNode result = linkedlistreverse.reverse(ListNode.fromArray(new int[]{1, 2, 3, 4, 5}));
+            assertArrayEquals(new int[]{5, 4, 3, 2, 1}, result.toArray());
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> linkedlistreverse.solve(null));
+            ListNode result = linkedlistreverse.reverse(ListNode.fromArray(new int[]{1, 2}));
+            assertArrayEquals(new int[]{2, 1}, result.toArray());
         }
     }
 
@@ -45,19 +48,20 @@ class LinkedListReverseTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> linkedlistreverse.solve(null));
+            assertDoesNotThrow(() -> linkedlistreverse.reverse(null));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> linkedlistreverse.solve(null));
+            assertDoesNotThrow(() -> linkedlistreverse.reverse(ListNode.fromArray(new int[]{})));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> linkedlistreverse.solve(null));
+            ListNode result = linkedlistreverse.reverse(ListNode.fromArray(new int[]{1}));
+            assertArrayEquals(new int[]{1}, result.toArray());
         }
     }
 
@@ -67,13 +71,13 @@ class LinkedListReverseTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> linkedlistreverse.solve(null));
+            assertDoesNotThrow(() -> linkedlistreverse.reverse(ListNode.fromArray(new int[]{4, 5, 6, 7})));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> linkedlistreverse.solve(null));
+            assertDoesNotThrow(() -> linkedlistreverse.reverse(ListNode.fromArray(new int[]{0, 0, 0})));
         }
     }
 }

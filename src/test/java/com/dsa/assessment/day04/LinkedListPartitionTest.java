@@ -23,19 +23,25 @@ class LinkedListPartitionTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> linkedlistpartition.solve(null));
+            ListNode head = ListNode.fromArray(new int[]{1, 4, 3, 2, 5, 2});
+            ListNode result = linkedlistpartition.partition(head, 3);
+            assertArrayEquals(new int[]{1, 2, 2, 4, 3, 5}, result.toArray());
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> linkedlistpartition.solve(null));
+            ListNode head = ListNode.fromArray(new int[]{3, 1, 2});
+            ListNode result = linkedlistpartition.partition(head, 2);
+            assertArrayEquals(new int[]{1, 3, 2}, result.toArray());
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> linkedlistpartition.solve(null));
+            ListNode head = ListNode.fromArray(new int[]{2, 1});
+            ListNode result = linkedlistpartition.partition(head, 2);
+            assertArrayEquals(new int[]{1, 2}, result.toArray());
         }
     }
 
@@ -45,19 +51,21 @@ class LinkedListPartitionTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> linkedlistpartition.solve(null));
+            assertDoesNotThrow(() -> linkedlistpartition.partition(null, 3));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> linkedlistpartition.solve(null));
+            assertDoesNotThrow(() -> linkedlistpartition.partition(ListNode.fromArray(new int[]{}), 3));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> linkedlistpartition.solve(null));
+            ListNode head = ListNode.fromArray(new int[]{1});
+            ListNode result = linkedlistpartition.partition(head, 2);
+            assertArrayEquals(new int[]{1}, result.toArray());
         }
     }
 
@@ -67,13 +75,13 @@ class LinkedListPartitionTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> linkedlistpartition.solve(null));
+            assertDoesNotThrow(() -> linkedlistpartition.partition(ListNode.fromArray(new int[]{1, 4, 3, 2, 5, 2}), 3));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> linkedlistpartition.solve(null));
+            assertDoesNotThrow(() -> linkedlistpartition.partition(null, 1));
         }
     }
 }

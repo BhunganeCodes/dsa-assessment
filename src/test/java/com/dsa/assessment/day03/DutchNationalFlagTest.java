@@ -23,19 +23,19 @@ class DutchNationalFlagTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> dutchnationalflag.solve(null));
+            assertArrayEquals(new int[]{0, 0, 1, 1, 2, 2}, dutchnationalflag.sort012(new int[]{2, 0, 1, 2, 0, 1}));
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> dutchnationalflag.solve(null));
+            assertArrayEquals(new int[]{0, 1, 2}, dutchnationalflag.sort012(new int[]{0, 1, 2}));
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> dutchnationalflag.solve(null));
+            assertArrayEquals(new int[]{0, 0, 1, 1, 1, 2, 2, 2}, dutchnationalflag.sort012(new int[]{2, 1, 0, 2, 1, 0, 2, 1}));
         }
     }
 
@@ -45,19 +45,19 @@ class DutchNationalFlagTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> dutchnationalflag.solve(null));
+            assertDoesNotThrow(() -> dutchnationalflag.sort012(null));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> dutchnationalflag.solve(null));
+            assertDoesNotThrow(() -> dutchnationalflag.sort012(new int[]{}));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> dutchnationalflag.solve(null));
+            assertArrayEquals(new int[]{2, 2, 2}, dutchnationalflag.sort012(new int[]{2, 2, 2}));
         }
     }
 
@@ -67,13 +67,13 @@ class DutchNationalFlagTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> dutchnationalflag.solve(null));
+            assertDoesNotThrow(() -> dutchnationalflag.sort012(new int[]{0, 2, 1, 0, 1, 2, 0}));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> dutchnationalflag.solve(null));
+            assertDoesNotThrow(() -> dutchnationalflag.sort012(new int[]{1, 2, 0, 1, 0, 2}));
         }
     }
 }

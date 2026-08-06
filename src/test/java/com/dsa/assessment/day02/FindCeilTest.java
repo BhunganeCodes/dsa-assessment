@@ -23,19 +23,19 @@ class FindCeilTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> findceil.solve(null));
+            assertEquals(8, findceil.findCeil(new int[]{1, 2, 8, 10}, 5));
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> findceil.solve(null));
+            assertEquals(2, findceil.findCeil(new int[]{1, 2, 8, 10}, 2));
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> findceil.solve(null));
+            assertEquals(10, findceil.findCeil(new int[]{1, 2, 8, 10}, 10));
         }
     }
 
@@ -45,19 +45,19 @@ class FindCeilTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> findceil.solve(null));
+            assertDoesNotThrow(() -> findceil.findCeil(null, 5));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> findceil.solve(null));
+            assertDoesNotThrow(() -> findceil.findCeil(new int[]{}, 5));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> findceil.solve(null));
+            assertEquals(1, findceil.findCeil(new int[]{1}, 1));
         }
     }
 
@@ -67,13 +67,13 @@ class FindCeilTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> findceil.solve(null));
+            assertDoesNotThrow(() -> findceil.findCeil(new int[]{1, 3, 5, 6}, 4));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> findceil.solve(null));
+            assertDoesNotThrow(() -> findceil.findCeil(new int[]{3, 4, 5}, 6));
         }
     }
 }

@@ -23,19 +23,19 @@ class RadixSortTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> radixsort.solve(null));
+            assertArrayEquals(new int[]{2, 24, 45, 66, 75, 90, 170, 802}, radixsort.sort(new int[]{170, 45, 75, 90, 802, 24, 2, 66}));
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> radixsort.solve(null));
+            assertArrayEquals(new int[]{1, 5, 10}, radixsort.sort(new int[]{10, 5, 1}));
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> radixsort.solve(null));
+            assertArrayEquals(new int[]{1, 3, 55, 120}, radixsort.sort(new int[]{120, 55, 3, 1}));
         }
     }
 
@@ -45,19 +45,19 @@ class RadixSortTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> radixsort.solve(null));
+            assertDoesNotThrow(() -> radixsort.sort(null));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> radixsort.solve(null));
+            assertDoesNotThrow(() -> radixsort.sort(new int[0]));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> radixsort.solve(null));
+            assertArrayEquals(new int[]{0, 0, 0}, radixsort.sort(new int[]{0, 0, 0}));
         }
     }
 
@@ -67,13 +67,13 @@ class RadixSortTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> radixsort.solve(null));
+            assertDoesNotThrow(() -> radixsort.sort(new int[]{9, 3, 5}));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> radixsort.solve(null));
+            assertDoesNotThrow(() -> radixsort.sort(new int[]{1}));
         }
     }
 }

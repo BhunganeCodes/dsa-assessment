@@ -23,19 +23,28 @@ class WiggleSortTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> wigglesort.solve(null));
+            int[] result = wigglesort.wiggleSort(new int[]{3, 5, 2, 1, 6, 4});
+            for (int i = 0; i + 1 < result.length; i += 2) {
+                assertTrue(result[i] <= result[i + 1]);
+            }
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> wigglesort.solve(null));
+            int[] result = wigglesort.wiggleSort(new int[]{1, 5, 1, 1, 6, 4});
+            for (int i = 0; i + 1 < result.length; i += 2) {
+                assertTrue(result[i] <= result[i + 1]);
+            }
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> wigglesort.solve(null));
+            int[] result = wigglesort.wiggleSort(new int[]{10, 90, 49, 2, 1, 5, 23});
+            for (int i = 0; i + 1 < result.length; i += 2) {
+                assertTrue(result[i] <= result[i + 1]);
+            }
         }
     }
 
@@ -45,19 +54,22 @@ class WiggleSortTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> wigglesort.solve(null));
+            assertDoesNotThrow(() -> wigglesort.wiggleSort(null));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> wigglesort.solve(null));
+            assertDoesNotThrow(() -> wigglesort.wiggleSort(new int[0]));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> wigglesort.solve(null));
+            int[] result = wigglesort.wiggleSort(new int[]{4, 4, 4});
+            for (int i = 0; i + 1 < result.length; i += 2) {
+                assertTrue(result[i] <= result[i + 1]);
+            }
         }
     }
 
@@ -67,13 +79,13 @@ class WiggleSortTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> wigglesort.solve(null));
+            assertDoesNotThrow(() -> wigglesort.wiggleSort(new int[]{2, 1}));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> wigglesort.solve(null));
+            assertDoesNotThrow(() -> wigglesort.wiggleSort(new int[]{1}));
         }
     }
 }

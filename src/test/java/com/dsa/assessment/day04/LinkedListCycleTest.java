@@ -23,19 +23,24 @@ class LinkedListCycleTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> linkedlistcycle.solve(null));
+            ListNode head = ListNode.fromArray(new int[]{1, 2, 3});
+            head.next.next.next = head;
+            assertTrue(linkedlistcycle.hasCycle(head));
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> linkedlistcycle.solve(null));
+            ListNode head = ListNode.fromArray(new int[]{1, 2, 3});
+            assertFalse(linkedlistcycle.hasCycle(head));
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> linkedlistcycle.solve(null));
+            ListNode head = ListNode.fromArray(new int[]{1, 2});
+            head.next.next = head;
+            assertTrue(linkedlistcycle.hasCycle(head));
         }
     }
 
@@ -45,19 +50,20 @@ class LinkedListCycleTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> linkedlistcycle.solve(null));
+            assertDoesNotThrow(() -> linkedlistcycle.hasCycle(null));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> linkedlistcycle.solve(null));
+            assertDoesNotThrow(() -> linkedlistcycle.hasCycle(ListNode.fromArray(new int[]{})));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> linkedlistcycle.solve(null));
+            ListNode head = ListNode.fromArray(new int[]{1});
+            assertFalse(linkedlistcycle.hasCycle(head));
         }
     }
 
@@ -67,13 +73,13 @@ class LinkedListCycleTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> linkedlistcycle.solve(null));
+            assertDoesNotThrow(() -> linkedlistcycle.hasCycle(ListNode.fromArray(new int[]{1, 2, 3, 4, 5})));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> linkedlistcycle.solve(null));
+            assertDoesNotThrow(() -> linkedlistcycle.hasCycle(null));
         }
     }
 }

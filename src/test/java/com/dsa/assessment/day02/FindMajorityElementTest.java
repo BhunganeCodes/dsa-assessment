@@ -23,19 +23,19 @@ class FindMajorityElementTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> findmajorityelement.solve(null));
+            assertEquals(3, findmajorityelement.findMajority(new int[]{3, 1, 3, 3, 2}));
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> findmajorityelement.solve(null));
+            assertEquals(2, findmajorityelement.findMajority(new int[]{2, 2, 1, 1, 1, 2, 2}));
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> findmajorityelement.solve(null));
+            assertEquals(2, findmajorityelement.findMajority(new int[]{2, 1, 2}));
         }
     }
 
@@ -45,19 +45,19 @@ class FindMajorityElementTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> findmajorityelement.solve(null));
+            assertDoesNotThrow(() -> findmajorityelement.findMajority(null));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> findmajorityelement.solve(null));
+            assertDoesNotThrow(() -> findmajorityelement.findMajority(new int[]{}));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> findmajorityelement.solve(null));
+            assertEquals(1, findmajorityelement.findMajority(new int[]{1}));
         }
     }
 
@@ -67,13 +67,13 @@ class FindMajorityElementTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> findmajorityelement.solve(null));
+            assertDoesNotThrow(() -> findmajorityelement.findMajority(new int[]{1, 1, 2, 2}));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> findmajorityelement.solve(null));
+            assertDoesNotThrow(() -> findmajorityelement.findMajority(new int[]{4, 4, 4}));
         }
     }
 }

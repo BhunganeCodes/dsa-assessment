@@ -23,19 +23,19 @@ class InsertionSortTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> insertionsort.solve(null));
+            assertArrayEquals(new int[]{1, 2, 3}, insertionsort.sort(new int[]{3, 1, 2}));
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> insertionsort.solve(null));
+            assertArrayEquals(new int[]{1, 2, 5, 8, 9}, insertionsort.sort(new int[]{5, 2, 8, 1, 9}));
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> insertionsort.solve(null));
+            assertArrayEquals(new int[]{1, 3, 5, 7, 9, 11}, insertionsort.sort(new int[]{7, 1, 9, 3, 11, 5}));
         }
     }
 
@@ -45,19 +45,19 @@ class InsertionSortTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> insertionsort.solve(null));
+            assertDoesNotThrow(() -> insertionsort.sort(null));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> insertionsort.solve(null));
+            assertDoesNotThrow(() -> insertionsort.sort(new int[]{}));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> insertionsort.solve(null));
+            assertArrayEquals(new int[]{6, 6, 6}, insertionsort.sort(new int[]{6, 6, 6}));
         }
     }
 
@@ -67,13 +67,13 @@ class InsertionSortTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> insertionsort.solve(null));
+            assertDoesNotThrow(() -> insertionsort.sort(new int[]{4, 2, 9, 1, 6}));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> insertionsort.solve(null));
+            assertDoesNotThrow(() -> insertionsort.sort(new int[]{3, -2, 8, 0, 5}));
         }
     }
 }

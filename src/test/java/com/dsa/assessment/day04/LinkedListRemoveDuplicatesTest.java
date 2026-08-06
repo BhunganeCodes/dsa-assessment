@@ -23,19 +23,22 @@ class LinkedListRemoveDuplicatesTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> linkedlistremoveduplicates.solve(null));
+            ListNode result = linkedlistremoveduplicates.deleteDuplicates(ListNode.fromArray(new int[]{1, 1, 2}));
+            assertArrayEquals(new int[]{1, 2}, result.toArray());
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> linkedlistremoveduplicates.solve(null));
+            ListNode result = linkedlistremoveduplicates.deleteDuplicates(ListNode.fromArray(new int[]{1, 1, 2, 3, 3}));
+            assertArrayEquals(new int[]{1, 2, 3}, result.toArray());
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> linkedlistremoveduplicates.solve(null));
+            ListNode result = linkedlistremoveduplicates.deleteDuplicates(ListNode.fromArray(new int[]{1, 1, 1}));
+            assertArrayEquals(new int[]{1}, result.toArray());
         }
     }
 
@@ -45,19 +48,20 @@ class LinkedListRemoveDuplicatesTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> linkedlistremoveduplicates.solve(null));
+            assertDoesNotThrow(() -> linkedlistremoveduplicates.deleteDuplicates(null));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> linkedlistremoveduplicates.solve(null));
+            assertDoesNotThrow(() -> linkedlistremoveduplicates.deleteDuplicates(ListNode.fromArray(new int[]{})));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> linkedlistremoveduplicates.solve(null));
+            ListNode result = linkedlistremoveduplicates.deleteDuplicates(ListNode.fromArray(new int[]{5}));
+            assertArrayEquals(new int[]{5}, result.toArray());
         }
     }
 
@@ -67,13 +71,13 @@ class LinkedListRemoveDuplicatesTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> linkedlistremoveduplicates.solve(null));
+            assertDoesNotThrow(() -> linkedlistremoveduplicates.deleteDuplicates(ListNode.fromArray(new int[]{2, 2, 3, 3, 4})));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> linkedlistremoveduplicates.solve(null));
+            assertDoesNotThrow(() -> linkedlistremoveduplicates.deleteDuplicates(ListNode.fromArray(new int[]{1, 1, 1, 1, 1})));
         }
     }
 }

@@ -23,19 +23,19 @@ class QuickSortWithMedianPivotTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> quicksortwithmedianpivot.solve(null));
+            assertArrayEquals(new int[]{1, 2, 5, 8, 9}, quicksortwithmedianpivot.sort(new int[]{5, 2, 8, 1, 9}));
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> quicksortwithmedianpivot.solve(null));
+            assertArrayEquals(new int[]{1, 2, 3}, quicksortwithmedianpivot.sort(new int[]{3, 1, 2}));
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> quicksortwithmedianpivot.solve(null));
+            assertArrayEquals(new int[]{1, 3, 5, 7, 9}, quicksortwithmedianpivot.sort(new int[]{9, 7, 5, 3, 1}));
         }
     }
 
@@ -45,19 +45,19 @@ class QuickSortWithMedianPivotTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> quicksortwithmedianpivot.solve(null));
+            assertDoesNotThrow(() -> quicksortwithmedianpivot.sort(null));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> quicksortwithmedianpivot.solve(null));
+            assertDoesNotThrow(() -> quicksortwithmedianpivot.sort(new int[0]));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> quicksortwithmedianpivot.solve(null));
+            assertArrayEquals(new int[]{4, 4, 4}, quicksortwithmedianpivot.sort(new int[]{4, 4, 4}));
         }
     }
 
@@ -67,13 +67,13 @@ class QuickSortWithMedianPivotTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> quicksortwithmedianpivot.solve(null));
+            assertDoesNotThrow(() -> quicksortwithmedianpivot.sort(new int[]{2, 1}));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> quicksortwithmedianpivot.solve(null));
+            assertDoesNotThrow(() -> quicksortwithmedianpivot.sort(new int[]{1}));
         }
     }
 }

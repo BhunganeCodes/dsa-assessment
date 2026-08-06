@@ -23,19 +23,19 @@ class TwoPointerSearchTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> twopointersearch.solve(null));
+            assertTrue(twopointersearch.hasPairWithSum(new int[]{1, 2, 3, 8, 10}, 11));
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> twopointersearch.solve(null));
+            assertTrue(twopointersearch.hasPairWithSum(new int[]{1, 2, 3, 8, 10}, 18));
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> twopointersearch.solve(null));
+            assertFalse(twopointersearch.hasPairWithSum(new int[]{1, 2, 3, 8, 10}, 100));
         }
     }
 
@@ -45,19 +45,19 @@ class TwoPointerSearchTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> twopointersearch.solve(null));
+            assertDoesNotThrow(() -> twopointersearch.hasPairWithSum(null, 11));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> twopointersearch.solve(null));
+            assertDoesNotThrow(() -> twopointersearch.hasPairWithSum(new int[]{}, 11));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> twopointersearch.solve(null));
+            assertFalse(twopointersearch.hasPairWithSum(new int[]{5}, 10));
         }
     }
 
@@ -67,13 +67,13 @@ class TwoPointerSearchTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> twopointersearch.solve(null));
+            assertDoesNotThrow(() -> twopointersearch.hasPairWithSum(new int[]{1, 3, 5, 7}, 6));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> twopointersearch.solve(null));
+            assertDoesNotThrow(() -> twopointersearch.hasPairWithSum(new int[]{1, 2, 3}, 7));
         }
     }
 }

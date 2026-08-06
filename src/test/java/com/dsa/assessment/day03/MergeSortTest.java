@@ -23,19 +23,19 @@ class MergeSortTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> mergesort.solve(null));
+            assertArrayEquals(new int[]{1, 2, 3}, mergesort.sort(new int[]{3, 1, 2}));
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> mergesort.solve(null));
+            assertArrayEquals(new int[]{1, 2, 5, 8, 9}, mergesort.sort(new int[]{5, 2, 8, 1, 9}));
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> mergesort.solve(null));
+            assertArrayEquals(new int[]{1, 3, 4, 5, 6, 8, 9}, mergesort.sort(new int[]{6, 3, 8, 1, 9, 4, 5}));
         }
     }
 
@@ -45,19 +45,19 @@ class MergeSortTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> mergesort.solve(null));
+            assertDoesNotThrow(() -> mergesort.sort(null));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> mergesort.solve(null));
+            assertDoesNotThrow(() -> mergesort.sort(new int[]{}));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> mergesort.solve(null));
+            assertArrayEquals(new int[]{5}, mergesort.sort(new int[]{5}));
         }
     }
 
@@ -67,13 +67,13 @@ class MergeSortTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> mergesort.solve(null));
+            assertDoesNotThrow(() -> mergesort.sort(new int[]{12, 4, 7, 1, 9, 3}));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> mergesort.solve(null));
+            assertDoesNotThrow(() -> mergesort.sort(new int[]{-5, 2, -1, 0, 8}));
         }
     }
 }

@@ -23,19 +23,19 @@ class HeapSortTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> heapsort.solve(null));
+            assertArrayEquals(new int[]{1, 2, 3}, heapsort.sort(new int[]{3, 1, 2}));
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> heapsort.solve(null));
+            assertArrayEquals(new int[]{1, 2, 5, 8, 9}, heapsort.sort(new int[]{5, 2, 8, 1, 9}));
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> heapsort.solve(null));
+            assertArrayEquals(new int[]{2, 4, 6, 8, 10}, heapsort.sort(new int[]{10, 4, 8, 2, 6}));
         }
     }
 
@@ -45,19 +45,19 @@ class HeapSortTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> heapsort.solve(null));
+            assertDoesNotThrow(() -> heapsort.sort(null));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> heapsort.solve(null));
+            assertDoesNotThrow(() -> heapsort.sort(new int[]{}));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> heapsort.solve(null));
+            assertArrayEquals(new int[]{1, 1, 1}, heapsort.sort(new int[]{1, 1, 1}));
         }
     }
 
@@ -67,13 +67,13 @@ class HeapSortTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> heapsort.solve(null));
+            assertDoesNotThrow(() -> heapsort.sort(new int[]{9, 8, 7, 6, 5}));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> heapsort.solve(null));
+            assertDoesNotThrow(() -> heapsort.sort(new int[]{-3, 0, 5, 2, -1}));
         }
     }
 }

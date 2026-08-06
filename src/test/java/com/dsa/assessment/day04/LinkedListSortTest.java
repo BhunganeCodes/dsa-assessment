@@ -23,19 +23,22 @@ class LinkedListSortTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> linkedlistsort.solve(null));
+            ListNode result = linkedlistsort.sortList(ListNode.fromArray(new int[]{4, 2, 1, 3}));
+            assertArrayEquals(new int[]{1, 2, 3, 4}, result.toArray());
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> linkedlistsort.solve(null));
+            ListNode result = linkedlistsort.sortList(ListNode.fromArray(new int[]{-1, 5, 3, 4, 0}));
+            assertArrayEquals(new int[]{-1, 0, 3, 4, 5}, result.toArray());
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> linkedlistsort.solve(null));
+            ListNode result = linkedlistsort.sortList(ListNode.fromArray(new int[]{3, 1, 2}));
+            assertArrayEquals(new int[]{1, 2, 3}, result.toArray());
         }
     }
 
@@ -45,19 +48,20 @@ class LinkedListSortTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> linkedlistsort.solve(null));
+            assertDoesNotThrow(() -> linkedlistsort.sortList(null));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> linkedlistsort.solve(null));
+            assertDoesNotThrow(() -> linkedlistsort.sortList(ListNode.fromArray(new int[]{})));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> linkedlistsort.solve(null));
+            ListNode result = linkedlistsort.sortList(ListNode.fromArray(new int[]{7}));
+            assertArrayEquals(new int[]{7}, result.toArray());
         }
     }
 
@@ -67,13 +71,13 @@ class LinkedListSortTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> linkedlistsort.solve(null));
+            assertDoesNotThrow(() -> linkedlistsort.sortList(ListNode.fromArray(new int[]{2, 2, 1, 1})));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> linkedlistsort.solve(null));
+            assertDoesNotThrow(() -> linkedlistsort.sortList(ListNode.fromArray(new int[]{9, 9, 9})));
         }
     }
 }

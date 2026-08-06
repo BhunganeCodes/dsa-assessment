@@ -23,19 +23,19 @@ class FindSingleNumberTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> findsinglenumber.solve(null));
+            assertEquals(4, findsinglenumber.findSingle(new int[]{4, 1, 2, 1, 2}));
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> findsinglenumber.solve(null));
+            assertEquals(1, findsinglenumber.findSingle(new int[]{2, 2, 1}));
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> findsinglenumber.solve(null));
+            assertEquals(5, findsinglenumber.findSingle(new int[]{7, 3, 7, 5, 3}));
         }
     }
 
@@ -45,19 +45,19 @@ class FindSingleNumberTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> findsinglenumber.solve(null));
+            assertDoesNotThrow(() -> findsinglenumber.findSingle(null));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> findsinglenumber.solve(null));
+            assertDoesNotThrow(() -> findsinglenumber.findSingle(new int[]{}));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> findsinglenumber.solve(null));
+            assertEquals(1, findsinglenumber.findSingle(new int[]{1}));
         }
     }
 
@@ -67,13 +67,13 @@ class FindSingleNumberTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> findsinglenumber.solve(null));
+            assertDoesNotThrow(() -> findsinglenumber.findSingle(new int[]{1, 2, 1}));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> findsinglenumber.solve(null));
+            assertDoesNotThrow(() -> findsinglenumber.findSingle(new int[]{2, 2, 3, 3, 4}));
         }
     }
 }

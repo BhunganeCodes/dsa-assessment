@@ -23,19 +23,25 @@ class LinkedListFlattenTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> linkedlistflatten.solve(null));
+            ListNode head = ListNode.fromArray(new int[]{1, 2, 3, 4});
+            ListNode result = linkedlistflatten.flatten(head);
+            assertArrayEquals(new int[]{1, 2, 3, 4}, result.toArray());
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> linkedlistflatten.solve(null));
+            ListNode head = ListNode.fromArray(new int[]{1, 2, 3});
+            ListNode result = linkedlistflatten.flatten(head);
+            assertArrayEquals(new int[]{1, 2, 3}, result.toArray());
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> linkedlistflatten.solve(null));
+            ListNode head = ListNode.fromArray(new int[]{1, 2, 3, 4, 5});
+            ListNode result = linkedlistflatten.flatten(head);
+            assertArrayEquals(new int[]{1, 2, 3, 4, 5}, result.toArray());
         }
     }
 
@@ -45,19 +51,22 @@ class LinkedListFlattenTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> linkedlistflatten.solve(null));
+            ListNode result = linkedlistflatten.flatten(null);
+            assertNull(result);
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> linkedlistflatten.solve(null));
+            assertDoesNotThrow(() -> linkedlistflatten.flatten(ListNode.fromArray(new int[]{})));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> linkedlistflatten.solve(null));
+            ListNode head = ListNode.fromArray(new int[]{1});
+            ListNode result = linkedlistflatten.flatten(head);
+            assertArrayEquals(new int[]{1}, result.toArray());
         }
     }
 
@@ -67,13 +76,13 @@ class LinkedListFlattenTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> linkedlistflatten.solve(null));
+            assertDoesNotThrow(() -> linkedlistflatten.flatten(ListNode.fromArray(new int[]{1, 2, 3, 4})));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> linkedlistflatten.solve(null));
+            assertDoesNotThrow(() -> linkedlistflatten.flatten(null));
         }
     }
 }

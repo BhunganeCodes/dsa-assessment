@@ -23,19 +23,22 @@ class LinkedListSwapPairsTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> linkedlistswappairs.solve(null));
+            ListNode result = linkedlistswappairs.swapPairs(ListNode.fromArray(new int[]{1, 2, 3, 4}));
+            assertArrayEquals(new int[]{2, 1, 4, 3}, result.toArray());
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> linkedlistswappairs.solve(null));
+            ListNode result = linkedlistswappairs.swapPairs(ListNode.fromArray(new int[]{1, 2, 3}));
+            assertArrayEquals(new int[]{2, 1, 3}, result.toArray());
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> linkedlistswappairs.solve(null));
+            ListNode result = linkedlistswappairs.swapPairs(ListNode.fromArray(new int[]{1, 2, 3, 4, 5}));
+            assertArrayEquals(new int[]{2, 1, 4, 3, 5}, result.toArray());
         }
     }
 
@@ -45,19 +48,20 @@ class LinkedListSwapPairsTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> linkedlistswappairs.solve(null));
+            assertDoesNotThrow(() -> linkedlistswappairs.swapPairs(null));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> linkedlistswappairs.solve(null));
+            assertDoesNotThrow(() -> linkedlistswappairs.swapPairs(ListNode.fromArray(new int[]{})));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> linkedlistswappairs.solve(null));
+            ListNode result = linkedlistswappairs.swapPairs(ListNode.fromArray(new int[]{1}));
+            assertArrayEquals(new int[]{1}, result.toArray());
         }
     }
 
@@ -67,13 +71,13 @@ class LinkedListSwapPairsTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> linkedlistswappairs.solve(null));
+            assertDoesNotThrow(() -> linkedlistswappairs.swapPairs(ListNode.fromArray(new int[]{1, 2, 3, 4, 5, 6})));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> linkedlistswappairs.solve(null));
+            assertDoesNotThrow(() -> linkedlistswappairs.swapPairs(ListNode.fromArray(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9})));
         }
     }
 }

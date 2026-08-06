@@ -23,19 +23,19 @@ class IntegerSquareRootTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> integersquareroot.solve(null));
+            assertEquals(4, integersquareroot.sqrt(16));
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> integersquareroot.solve(null));
+            assertEquals(2, integersquareroot.sqrt(8));
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> integersquareroot.solve(null));
+            assertEquals(5, integersquareroot.sqrt(27));
         }
     }
 
@@ -45,19 +45,19 @@ class IntegerSquareRootTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> integersquareroot.solve(null));
+            assertDoesNotThrow(() -> integersquareroot.sqrt(1));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> integersquareroot.solve(null));
+            assertEquals(0, integersquareroot.sqrt(0));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> integersquareroot.solve(null));
+            assertEquals(1, integersquareroot.sqrt(1));
         }
     }
 
@@ -67,13 +67,13 @@ class IntegerSquareRootTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> integersquareroot.solve(null));
+            assertDoesNotThrow(() -> integersquareroot.sqrt(100));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> integersquareroot.solve(null));
+            assertDoesNotThrow(() -> integersquareroot.sqrt(2147483647));
         }
     }
 }

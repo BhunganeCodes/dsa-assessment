@@ -23,19 +23,28 @@ class LinkedListCloneTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> linkedlistclone.solve(null));
+            ListNode input = ListNode.fromArray(new int[]{1, 2, 3});
+            ListNode result = linkedlistclone.copyRandomList(input);
+            assertNotEquals(input, result);
+            assertArrayEquals(new int[]{1, 2, 3}, result.toArray());
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> linkedlistclone.solve(null));
+            ListNode input = ListNode.fromArray(new int[]{1, 2, 3, 4});
+            ListNode result = linkedlistclone.copyRandomList(input);
+            assertNotEquals(input, result);
+            assertArrayEquals(new int[]{1, 2, 3, 4}, result.toArray());
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> linkedlistclone.solve(null));
+            ListNode input = ListNode.fromArray(new int[]{1});
+            ListNode result = linkedlistclone.copyRandomList(input);
+            assertNotEquals(input, result);
+            assertArrayEquals(new int[]{1}, result.toArray());
         }
     }
 
@@ -45,19 +54,23 @@ class LinkedListCloneTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> linkedlistclone.solve(null));
+            assertDoesNotThrow(() -> linkedlistclone.copyRandomList(null));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> linkedlistclone.solve(null));
+            assertDoesNotThrow(() -> linkedlistclone.copyRandomList(ListNode.fromArray(new int[]{})));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> linkedlistclone.solve(null));
+            ListNode input = ListNode.fromArray(new int[]{1});
+            ListNode result = linkedlistclone.copyRandomList(input);
+            assertNotNull(result);
+            assertEquals(1, result.val);
+            assertNotEquals(input, result);
         }
     }
 
@@ -67,13 +80,13 @@ class LinkedListCloneTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> linkedlistclone.solve(null));
+            assertDoesNotThrow(() -> linkedlistclone.copyRandomList(ListNode.fromArray(new int[]{1, 2, 3})));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> linkedlistclone.solve(null));
+            assertDoesNotThrow(() -> linkedlistclone.copyRandomList(ListNode.fromArray(new int[]{5, 6, 7, 8, 9})));
         }
     }
 }

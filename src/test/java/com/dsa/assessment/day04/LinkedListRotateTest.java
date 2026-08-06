@@ -23,19 +23,22 @@ class LinkedListRotateTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> linkedlistrotate.solve(null));
+            ListNode result = linkedlistrotate.rotateRight(ListNode.fromArray(new int[]{1, 2, 3, 4, 5}), 2);
+            assertArrayEquals(new int[]{4, 5, 1, 2, 3}, result.toArray());
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> linkedlistrotate.solve(null));
+            ListNode result = linkedlistrotate.rotateRight(ListNode.fromArray(new int[]{1, 2, 3}), 7);
+            assertArrayEquals(new int[]{3, 1, 2}, result.toArray());
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> linkedlistrotate.solve(null));
+            ListNode result = linkedlistrotate.rotateRight(ListNode.fromArray(new int[]{1, 2, 3, 4}), 1);
+            assertArrayEquals(new int[]{4, 1, 2, 3}, result.toArray());
         }
     }
 
@@ -45,19 +48,20 @@ class LinkedListRotateTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> linkedlistrotate.solve(null));
+            assertDoesNotThrow(() -> linkedlistrotate.rotateRight(null, 2));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> linkedlistrotate.solve(null));
+            assertDoesNotThrow(() -> linkedlistrotate.rotateRight(ListNode.fromArray(new int[]{}), 3));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> linkedlistrotate.solve(null));
+            ListNode result = linkedlistrotate.rotateRight(ListNode.fromArray(new int[]{1}), 5);
+            assertArrayEquals(new int[]{1}, result.toArray());
         }
     }
 
@@ -67,13 +71,13 @@ class LinkedListRotateTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> linkedlistrotate.solve(null));
+            assertDoesNotThrow(() -> linkedlistrotate.rotateRight(ListNode.fromArray(new int[]{1, 2, 3}), 10));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> linkedlistrotate.solve(null));
+            assertDoesNotThrow(() -> linkedlistrotate.rotateRight(ListNode.fromArray(new int[]{1, 2}), 1));
         }
     }
 }

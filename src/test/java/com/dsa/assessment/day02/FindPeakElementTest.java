@@ -23,19 +23,25 @@ class FindPeakElementTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> findpeakelement.solve(null));
+            int[] array = new int[]{1, 2, 3, 1};
+            int peak = findpeakelement.findPeak(array);
+            assertEquals(3, array[peak]);
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> findpeakelement.solve(null));
+            int[] array = new int[]{1, 2, 1, 3, 5, 6, 4};
+            int peak = findpeakelement.findPeak(array);
+            assertTrue(array[peak] == 3 || array[peak] == 6);
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> findpeakelement.solve(null));
+            int[] array = new int[]{10, 2, 1};
+            int peak = findpeakelement.findPeak(array);
+            assertEquals(10, array[peak]);
         }
     }
 
@@ -45,19 +51,19 @@ class FindPeakElementTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> findpeakelement.solve(null));
+            assertDoesNotThrow(() -> findpeakelement.findPeak(null));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> findpeakelement.solve(null));
+            assertDoesNotThrow(() -> findpeakelement.findPeak(new int[]{}));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> findpeakelement.solve(null));
+            assertEquals(0, findpeakelement.findPeak(new int[]{5}));
         }
     }
 
@@ -67,13 +73,13 @@ class FindPeakElementTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> findpeakelement.solve(null));
+            assertDoesNotThrow(() -> findpeakelement.findPeak(new int[]{1, 2, 3, 4}));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> findpeakelement.solve(null));
+            assertDoesNotThrow(() -> findpeakelement.findPeak(new int[]{4, 3, 2, 1}));
         }
     }
 }

@@ -23,19 +23,19 @@ class MissingNumberTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> missingnumber.solve(null));
+            assertEquals(2, missingnumber.findMissing(new int[]{3, 0, 1}));
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> missingnumber.solve(null));
+            assertEquals(2, missingnumber.findMissing(new int[]{0, 1}));
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> missingnumber.solve(null));
+            assertEquals(8, missingnumber.findMissing(new int[]{9, 6, 4, 2, 3, 5, 7, 0, 1}));
         }
     }
 
@@ -45,19 +45,19 @@ class MissingNumberTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> missingnumber.solve(null));
+            assertDoesNotThrow(() -> missingnumber.findMissing(null));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> missingnumber.solve(null));
+            assertDoesNotThrow(() -> missingnumber.findMissing(new int[]{}));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> missingnumber.solve(null));
+            assertEquals(1, missingnumber.findMissing(new int[]{0}));
         }
     }
 
@@ -67,13 +67,13 @@ class MissingNumberTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> missingnumber.solve(null));
+            assertDoesNotThrow(() -> missingnumber.findMissing(new int[]{1, 0, 2}));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> missingnumber.solve(null));
+            assertDoesNotThrow(() -> missingnumber.findMissing(new int[]{5, 3, 1, 4, 0}));
         }
     }
 }

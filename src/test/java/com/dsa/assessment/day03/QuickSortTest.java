@@ -23,19 +23,19 @@ class QuickSortTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> quicksort.solve(null));
+            assertArrayEquals(new int[]{1, 2, 3}, quicksort.sort(new int[]{3, 1, 2}));
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> quicksort.solve(null));
+            assertArrayEquals(new int[]{1, 2, 5, 8, 9}, quicksort.sort(new int[]{5, 2, 8, 1, 9}));
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> quicksort.solve(null));
+            assertArrayEquals(new int[]{2, 3, 6, 7, 9, 10}, quicksort.sort(new int[]{7, 3, 10, 2, 9, 6}));
         }
     }
 
@@ -45,19 +45,19 @@ class QuickSortTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> quicksort.solve(null));
+            assertDoesNotThrow(() -> quicksort.sort(null));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> quicksort.solve(null));
+            assertDoesNotThrow(() -> quicksort.sort(new int[]{}));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> quicksort.solve(null));
+            assertArrayEquals(new int[]{8}, quicksort.sort(new int[]{8}));
         }
     }
 
@@ -67,13 +67,13 @@ class QuickSortTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> quicksort.solve(null));
+            assertDoesNotThrow(() -> quicksort.sort(new int[]{11, 4, 7, 2, 9, 5}));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> quicksort.solve(null));
+            assertDoesNotThrow(() -> quicksort.sort(new int[]{-4, 1, 3, -2, 0}));
         }
     }
 }

@@ -23,19 +23,19 @@ class SearchInsertPositionTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> searchinsertposition.solve(null));
+            assertEquals(2, searchinsertposition.searchInsert(new int[]{1, 3, 5, 6}, 5));
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> searchinsertposition.solve(null));
+            assertEquals(1, searchinsertposition.searchInsert(new int[]{1, 3, 5, 6}, 2));
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> searchinsertposition.solve(null));
+            assertEquals(4, searchinsertposition.searchInsert(new int[]{1, 3, 5, 6}, 7));
         }
     }
 
@@ -45,19 +45,19 @@ class SearchInsertPositionTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> searchinsertposition.solve(null));
+            assertDoesNotThrow(() -> searchinsertposition.searchInsert(null, 5));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> searchinsertposition.solve(null));
+            assertEquals(0, searchinsertposition.searchInsert(new int[]{}, 5));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> searchinsertposition.solve(null));
+            assertEquals(0, searchinsertposition.searchInsert(new int[]{1, 3, 5, 6}, 0));
         }
     }
 
@@ -67,13 +67,13 @@ class SearchInsertPositionTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> searchinsertposition.solve(null));
+            assertDoesNotThrow(() -> searchinsertposition.searchInsert(new int[]{2, 4, 6, 8}, 7));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> searchinsertposition.solve(null));
+            assertDoesNotThrow(() -> searchinsertposition.searchInsert(new int[]{1}, 1));
         }
     }
 }

@@ -23,19 +23,19 @@ class ShellSortTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> shellsort.solve(null));
+            assertArrayEquals(new int[]{1, 2, 5, 8, 9}, shellsort.sort(new int[]{5, 2, 8, 1, 9}));
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> shellsort.solve(null));
+            assertArrayEquals(new int[]{1, 2, 3}, shellsort.sort(new int[]{3, 1, 2}));
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> shellsort.solve(null));
+            assertArrayEquals(new int[]{1, 3, 7, 9}, shellsort.sort(new int[]{7, 3, 9, 1}));
         }
     }
 
@@ -45,19 +45,19 @@ class ShellSortTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> shellsort.solve(null));
+            assertDoesNotThrow(() -> shellsort.sort(null));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> shellsort.solve(null));
+            assertDoesNotThrow(() -> shellsort.sort(new int[0]));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> shellsort.solve(null));
+            assertArrayEquals(new int[]{4, 4, 4}, shellsort.sort(new int[]{4, 4, 4}));
         }
     }
 
@@ -67,13 +67,13 @@ class ShellSortTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> shellsort.solve(null));
+            assertDoesNotThrow(() -> shellsort.sort(new int[]{2, 1}));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> shellsort.solve(null));
+            assertDoesNotThrow(() -> shellsort.sort(new int[]{1}));
         }
     }
 }

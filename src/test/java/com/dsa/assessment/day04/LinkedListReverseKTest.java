@@ -23,19 +23,22 @@ class LinkedListReverseKTest {
         @Test
         @DisplayName("Should solve basic case")
         void shouldSolveBasicCase() {
-            assertDoesNotThrow(() -> linkedlistreversek.solve(null));
+            ListNode result = linkedlistreversek.reverseKGroup(ListNode.fromArray(new int[]{1, 2, 3, 4, 5}), 2);
+            assertArrayEquals(new int[]{2, 1, 4, 3, 5}, result.toArray());
         }
 
         @Test
         @DisplayName("Should solve typical case")
         void shouldSolveTypicalCase() {
-            assertDoesNotThrow(() -> linkedlistreversek.solve(null));
+            ListNode result = linkedlistreversek.reverseKGroup(ListNode.fromArray(new int[]{1, 2, 3, 4}), 2);
+            assertArrayEquals(new int[]{2, 1, 4, 3}, result.toArray());
         }
 
         @Test
         @DisplayName("Should solve with valid input")
         void shouldSolveWithValidInput() {
-            assertDoesNotThrow(() -> linkedlistreversek.solve(null));
+            ListNode result = linkedlistreversek.reverseKGroup(ListNode.fromArray(new int[]{1, 2, 3, 4, 5}), 3);
+            assertArrayEquals(new int[]{3, 2, 1, 4, 5}, result.toArray());
         }
     }
 
@@ -45,19 +48,20 @@ class LinkedListReverseKTest {
         @Test
         @DisplayName("Should handle null input")
         void shouldHandleNullInput() {
-            assertDoesNotThrow(() -> linkedlistreversek.solve(null));
+            assertDoesNotThrow(() -> linkedlistreversek.reverseKGroup(null, 2));
         }
 
         @Test
         @DisplayName("Should handle empty input")
         void shouldHandleEmptyInput() {
-            assertDoesNotThrow(() -> linkedlistreversek.solve(null));
+            assertDoesNotThrow(() -> linkedlistreversek.reverseKGroup(ListNode.fromArray(new int[]{}), 2));
         }
 
         @Test
         @DisplayName("Should handle boundary condition")
         void shouldHandleBoundaryCondition() {
-            assertDoesNotThrow(() -> linkedlistreversek.solve(null));
+            ListNode result = linkedlistreversek.reverseKGroup(ListNode.fromArray(new int[]{1, 2, 3}), 1);
+            assertArrayEquals(new int[]{1, 2, 3}, result.toArray());
         }
     }
 
@@ -67,13 +71,13 @@ class LinkedListReverseKTest {
         @Test
         @DisplayName("Should not throw unexpected exception")
         void shouldNotThrowUnexpectedException() {
-            assertDoesNotThrow(() -> linkedlistreversek.solve(null));
+            assertDoesNotThrow(() -> linkedlistreversek.reverseKGroup(ListNode.fromArray(new int[]{1, 2, 3, 4, 5}), 5));
         }
 
         @Test
         @DisplayName("Should handle invalid input gracefully")
         void shouldHandleInvalidInputGracefully() {
-            assertDoesNotThrow(() -> linkedlistreversek.solve(null));
+            assertDoesNotThrow(() -> linkedlistreversek.reverseKGroup(ListNode.fromArray(new int[]{1, 2}), 3));
         }
     }
 }
