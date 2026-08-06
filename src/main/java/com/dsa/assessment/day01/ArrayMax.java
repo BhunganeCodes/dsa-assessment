@@ -19,6 +19,8 @@ public class ArrayMax {
      */
     public int findMax(int[] array) {
         // TODO: Implement this method
+        if (array == null || array.length == 0) return 0;
+
         int res = array[0];
 
         for (int num : array) {
