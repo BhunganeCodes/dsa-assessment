@@ -19,6 +19,14 @@ public class ArrayReverse {
      */
     public int[] reverse(int[] array) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement reverse(int[] array)");
+        if (array == null) return null;
+        int[] rev = new int[array.length];
+        int j = 0;
+
+        for (int i= array.length - 1; i >= 0; i--) {
+            rev[j] = array[i];
+            j++;
+        }
+        return rev;
     }
 }
