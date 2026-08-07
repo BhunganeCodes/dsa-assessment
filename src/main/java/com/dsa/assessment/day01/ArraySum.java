@@ -19,6 +19,7 @@ public class ArraySum {
      */
     public int sum(int[] array) {
         // TODO: Implement this method
+        if (array == null) return 0;
         int result = 0;
 
         for (int i = 0; i < array.length; i++) {
