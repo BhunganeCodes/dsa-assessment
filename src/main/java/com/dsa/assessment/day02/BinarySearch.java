@@ -19,6 +19,11 @@ public class BinarySearch {
      */
     public int search(int[] sortedArray, int target) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement search(int[] sortedArray, int target)");
+        if (sortedArray == null) return -1;
+
+        for (int i = 0; i < sortedArray.length; i++) {
+            if (sortedArray[i] == target) return i;
+        }
+        return -1;
     }
 }
