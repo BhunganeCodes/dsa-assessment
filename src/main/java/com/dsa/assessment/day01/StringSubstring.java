@@ -19,6 +19,13 @@ public class StringSubstring {
      */
     public String substring(String str, int start, int end) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement substring(String str, int start, int end)");
+        if (str == null) return null;
+        if (start < 0 || end > str.length()) throw new StringIndexOutOfBoundsException();
+        String res = "";
+
+        for (int i = start; i < end; i++) {
+            res += str.charAt(i);
+        }
+        return res;
     }
 }
