@@ -19,6 +19,13 @@ public class CharCount {
      */
     public int countChar(String str, char target) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement countChar(String str, char target)");
+
+        char[] charArray = str.toCharArray();
+        int count = 0;
+
+        for (char ch : charArray) {
+            if (ch == target) count++;
+        }
+        return count;
     }
 }
