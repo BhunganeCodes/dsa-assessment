@@ -19,6 +19,7 @@ public class StringConcat {
      */
     public String concat(String[] strings) {
         // TODO: Implement this method
+        if (strings == null) return "";
         String result = "";
 
         for (String str : strings) {
