@@ -19,7 +19,7 @@ public class StringReverse {
      */
     public String reverse(String str) {
         // TODO: Implement this method
-
+        if (str == null) return null;
         char[] arr = str.toCharArray();
         String res = "";
 
