@@ -19,6 +19,7 @@ public class StringStartsWith {
      */
     public boolean startsWith(String str, String prefix) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement startsWith(String str, String prefix)");
+        if (str == null) return false;
+        return str.contains(prefix);
     }
 }
