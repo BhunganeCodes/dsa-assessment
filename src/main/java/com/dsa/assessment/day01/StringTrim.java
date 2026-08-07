@@ -19,6 +19,18 @@ public class StringTrim {
      */
     public String trim(String str) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement trim(String str)");
+        if (str == null) return null;
+        int start = 0;
+        int end = str.length();
+
+        while (start < end && Character.isWhitespace(str.charAt(start))) {
+            start++;
+        }
+
+        while (end > start && Character.isWhitespace(str.charAt(end - 1))) {
+            end--;
+        }
+
+        return str.substring(start, end);
     }
 }
