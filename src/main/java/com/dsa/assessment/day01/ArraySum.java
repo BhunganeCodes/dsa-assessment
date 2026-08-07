@@ -22,8 +22,8 @@ public class ArraySum {
         if (array == null) return 0;
         int result = 0;
 
-        for (int i = 0; i < array.length; i++) {
-            result += array[i];
+        for (int num : array) {
+            result += num;
         }
         return result;
     }
