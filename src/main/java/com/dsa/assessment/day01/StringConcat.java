@@ -19,6 +19,11 @@ public class StringConcat {
      */
     public String concat(String[] strings) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement concat(String[] strings)");
+        String result = "";
+
+        for (String str : strings) {
+            result += str;
+        }
+        return result;
     }
 }
