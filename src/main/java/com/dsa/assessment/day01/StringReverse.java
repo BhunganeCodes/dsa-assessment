@@ -19,6 +19,14 @@ public class StringReverse {
      */
     public String reverse(String str) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement reverse(String str)");
+
+        char[] arr = str.toCharArray();
+        String res = "";
+
+        for (char ch : arr) {
+            res = ch + res;
+        }
+
+        return res;
     }
 }
