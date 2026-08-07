@@ -20,6 +20,12 @@ public class StringReplace {
     public String replace(String str, char oldChar, char newChar) {
         // TODO: Implement this method
         if (str == null) return null;
-        return null;
+        char[] chArr = str.toCharArray();
+        for (int i = 0; i < chArr.length; i++) {
+            if (chArr[i] == oldChar) {
+                chArr[i] = newChar;
+            }
+        }
+        return String.valueOf(chArr);
     }
 }
