@@ -19,7 +19,7 @@ public class CharCount {
      */
     public int countChar(String str, char target) {
         // TODO: Implement this method
-
+        if (str == null) return 0;
         char[] charArray = str.toCharArray();
         int count = 0;
 
