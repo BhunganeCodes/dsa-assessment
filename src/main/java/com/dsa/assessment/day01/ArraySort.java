@@ -19,6 +19,7 @@ public class ArraySort {
      */
     public int[] sort(int[] array) {
         // TODO: Implement this method
+        if (array == null) return null;
         int n = array.length;
 
         for (int i = 0; i < n - 1; i++) {
