@@ -19,6 +19,7 @@ public class StringReplace {
      */
     public String replace(String str, char oldChar, char newChar) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement replace(String str, char oldChar, char newChar)");
+        if (str == null) return null;
+        return null;
     }
 }
