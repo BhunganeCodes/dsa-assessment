@@ -19,7 +19,8 @@ public class StringPalindrome {
      */
     public boolean isPalindrome(String str) {
         // TODO: Implement this method
-        char[] arr = str.toCharArray();
+        if (str == null) return false;
+        char[] arr = str.toLowerCase().toCharArray();
         int l = 0;
         int r = arr.length - 1;
 
