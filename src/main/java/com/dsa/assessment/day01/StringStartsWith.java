@@ -19,7 +19,12 @@ public class StringStartsWith {
      */
     public boolean startsWith(String str, String prefix) {
         // TODO: Implement this method
-        if (str == null) return false;
-        return str.contains(prefix);
+        if (str == null || prefix == null) return false;
+        if (prefix.length() > str.length()) return false;
+
+        for (int i = 0; i < prefix.length(); i++) {
+            if (str.charAt(i) != prefix.charAt(i)) return false;
+        }
+        return true;
     }
 }
