@@ -19,6 +19,18 @@ public class StringPalindrome {
      */
     public boolean isPalindrome(String str) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement isPalindrome(String str)");
+        char[] arr = str.toCharArray();
+        int l = 0;
+        int r = arr.length - 1;
+
+        boolean palindrome = true;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (l > r) break;
+            if (arr[l] != arr[r]) palindrome = false;
+            l++;
+            r--;
+        }
+        return palindrome;
     }
 }
