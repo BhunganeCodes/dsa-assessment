@@ -19,6 +19,11 @@ public class ArraySum {
      */
     public int sum(int[] array) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement sum(int[] array)");
+        int result = 0;
+
+        for (int i = 0; i < array.length - 1; i++) {
+            result += array[i];
+        }
+        return result;
     }
 }
