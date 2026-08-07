@@ -19,6 +19,7 @@ public class StringUpperCase {
      */
     public String toUpper(String str) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement toUpper(String str)");
+        if (str == null) return null;
+        return str.toUpperCase();
     }
 }
