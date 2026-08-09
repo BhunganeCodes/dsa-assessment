@@ -1,5 +1,7 @@
 package com.dsa.assessment.day02;
 
+import java.util.HashMap;
+
 /**
  * Day 02 - FindDuplicate
  * 
@@ -19,6 +21,18 @@ public class FindDuplicate {
      */
     public int findDuplicate(int[] array) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement findDuplicate(int[] array)");
+        if (array == null) return 0;
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int duplicate = 0;
+
+        for (int num : array) {
+            if (map.containsKey(num)) {
+                map.replace(num, map.get(num) + 1);
+                duplicate = num;
+            }
+            map.put(num, 1);
+        }
+        return duplicate;
     }
 }
