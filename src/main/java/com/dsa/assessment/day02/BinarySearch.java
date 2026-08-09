@@ -21,8 +21,19 @@ public class BinarySearch {
         // TODO: Implement this method
         if (sortedArray == null) return -1;
 
-        for (int i = 0; i < sortedArray.length; i++) {
-            if (sortedArray[i] == target) return i;
+        int low = 0;
+        int high = sortedArray.length - 1;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+
+            if (sortedArray[mid] == target) {
+                return mid;
+            } else if (sortedArray[mid] < target) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
         }
         return -1;
     }
