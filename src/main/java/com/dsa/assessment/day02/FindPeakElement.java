@@ -23,7 +23,7 @@ public class FindPeakElement {
         int peak = 0;
 
         for (int i = 1; i < array.length - 1; i++) {
-            if (i > i - 1 && i > i + 1) peak = i;
+            if (array[i] > array[i - 1] && array[i] > array[i + 1]) peak = i;
         }
         return peak;
     }
