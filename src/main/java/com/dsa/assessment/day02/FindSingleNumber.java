@@ -1,5 +1,7 @@
 package com.dsa.assessment.day02;
 
+import java.util.HashMap;
+
 /**
  * Day 02 - FindSingleNumber
  * 
@@ -20,6 +22,17 @@ public class FindSingleNumber {
     public int findSingle(int[] array) {
         // TODO: Implement this method
         if (array == null) return 0;
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int single = 0;
+
+        for (int num : array) {
+            if (map.containsKey(num)) {
+                map.put(num, map.get(num) + 1);
+            }
+            map.put(num, 1);
+            single = num;
+        }
+        
         return 0;
     }
 }
