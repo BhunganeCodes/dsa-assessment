@@ -19,6 +19,12 @@ public class CountOccurrences {
      */
     public int count(int[] sortedArray, int target) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement count(int[] sortedArray, int target)");
+        if (sortedArray == null || sortedArray.length == 0) return 0;
+        int count = 0;
+
+        for (int num : sortedArray) {
+            if (num == target) count++;
+        }
+        return count;
     }
 }
