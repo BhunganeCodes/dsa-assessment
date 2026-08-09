@@ -23,21 +23,19 @@ public class FindSingleNumber {
         // TODO: Implement this method
         if (array == null) return 0;
         HashMap<Integer, Integer> map = new HashMap<>();
-        int single = 0;
 
         for (int num : array) {
             if (map.containsKey(num)) {
                 map.put(num, map.get(num) + 1);
             } else {
                 map.put(num, 1);
-                single = num;
             }
         }
 
         for (int key : map.keySet()) {
-            if (map.get(key) == 1) single = key;
+            if (map.get(key) == 1) return key;
         }
 
-        return single;
+        return 0;
     }
 }
