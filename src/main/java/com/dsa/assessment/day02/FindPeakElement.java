@@ -19,6 +19,12 @@ public class FindPeakElement {
      */
     public int findPeak(int[] array) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement findPeak(int[] array)");
+        if (array == null) return 0;
+        int peak = 0;
+
+        for (int i = 1; i < array.length - 1; i++) {
+            if (i > i - 1 && i > i + 1) peak = i;
+        }
+        return peak;
     }
 }
