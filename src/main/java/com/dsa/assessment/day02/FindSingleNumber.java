@@ -32,7 +32,11 @@ public class FindSingleNumber {
             map.put(num, 1);
             single = num;
         }
-        
-        return 0;
+
+        for (int key : map.keySet()) {
+            if (map.get(key) == 1) single = key;
+        }
+
+        return single;
     }
 }
