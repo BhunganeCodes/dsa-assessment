@@ -19,6 +19,16 @@ public class FindFloor {
      */
     public int findFloor(int[] sortedArray, int target) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement findFloor(int[] sortedArray, int target)");
+        if (sortedArray == null) return 0;
+
+        int res = 0;
+
+        for (int num : sortedArray) {
+            if (num <= target) {
+                res = num;
+                break;
+            }
+        }
+        return res;
     }
 }
