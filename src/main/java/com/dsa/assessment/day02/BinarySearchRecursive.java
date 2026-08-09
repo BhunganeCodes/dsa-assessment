@@ -19,6 +19,13 @@ public class BinarySearchRecursive {
      */
     public int search(int[] sortedArray, int target, int left, int right) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement search(int[] sortedArray, int target, int left, int right)");
+        if (sortedArray == null) return -1;
+
+        int mid = left + (right - left) / 2;
+        if (sortedArray[mid] == target) return mid;
+        else if (sortedArray[mid] < target) return search(sortedArray, target, mid+1, right);
+        else if (sortedArray[mid] > target) return search(sortedArray, target, left, mid-1);
+
+        return -1;
     }
 }
