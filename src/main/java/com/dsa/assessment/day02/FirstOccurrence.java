@@ -21,6 +21,10 @@ public class FirstOccurrence {
         // TODO: Implement this method
         if (sortedArray == null || sortedArray.length == 0) return -1;
 
-        return 0;
+        for (int i = 0; i < sortedArray.length; i++) {
+            if (sortedArray[i] == target) return i;
+        }
+
+        return -1;
     }
 }
