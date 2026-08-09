@@ -19,6 +19,8 @@ public class FirstOccurrence {
      */
     public int findFirst(int[] sortedArray, int target) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement findFirst(int[] sortedArray, int target)");
+        if (sortedArray == null || sortedArray.length == 0) return -1;
+
+        return 0;
     }
 }
