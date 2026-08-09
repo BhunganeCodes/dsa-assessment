@@ -20,12 +20,11 @@ public class BinarySearchRecursive {
     public int search(int[] sortedArray, int target, int left, int right) {
         // TODO: Implement this method
         if (sortedArray == null) return -1;
+        if (left > right || left > sortedArray.length) return -1;
 
         int mid = left + (right - left) / 2;
         if (sortedArray[mid] == target) return mid;
         else if (sortedArray[mid] < target) return search(sortedArray, target, mid+1, right);
-        else if (sortedArray[mid] > target) return search(sortedArray, target, left, mid-1);
-
-        return -1;
+        else return search(sortedArray, target, left, mid-1);
     }
 }
