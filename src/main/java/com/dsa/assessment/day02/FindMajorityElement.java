@@ -19,6 +19,7 @@ public class FindMajorityElement {
      */
     public int findMajority(int[] array) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement findMajority(int[] array)");
+        if (array == null) return 0;
+        return 0;
     }
 }
