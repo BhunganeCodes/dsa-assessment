@@ -19,6 +19,14 @@ public class LastOccurrence {
      */
     public int findLast(int[] sortedArray, int target) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement findLast(int[] sortedArray, int target)");
+        if (sortedArray == null) return -1;
+        int res = -1;
+
+        for (int i = 0; i < sortedArray.length; i++) {
+            if (sortedArray[i] == target) {
+                res = i;
+            }
+        }
+        return res;
     }
 }
