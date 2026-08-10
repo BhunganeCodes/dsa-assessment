@@ -19,6 +19,11 @@ public class IntegerSquareRoot {
      */
     public int sqrt(int x) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement sqrt(int x)");
+
+        int i = 0;
+        while (i * i <= x) {
+            i++;
+        }
+        return i - 1;
     }
 }
