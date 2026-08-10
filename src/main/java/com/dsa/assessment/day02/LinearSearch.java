@@ -19,6 +19,11 @@ public class LinearSearch {
      */
     public int search(int[] array, int target) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement search(int[] array, int target)");
+        if (array == null) return -1;
+
+        for (int i = 0 ; i < array.length; i++) {
+            if (array[i] == target) return i;
+        }
+        return -1;
     }
 }
