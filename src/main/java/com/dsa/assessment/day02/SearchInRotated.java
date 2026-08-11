@@ -19,6 +19,11 @@ public class SearchInRotated {
      */
     public int search(int[] rotatedArray, int target) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement search(int[] rotatedArray, int target)");
+        if (rotatedArray != null) {
+            for (int i = 0; i < rotatedArray.length; i++) {
+                if (rotatedArray[i] == target) return i;
+            }
+        }
+        return -1;
     }
 }
