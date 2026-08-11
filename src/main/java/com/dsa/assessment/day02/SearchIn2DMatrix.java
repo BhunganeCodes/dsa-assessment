@@ -19,6 +19,13 @@ public class SearchIn2DMatrix {
      */
     public boolean searchMatrix(int[][] matrix, int target) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement searchMatrix(int[][] matrix, int target)");
+        if (matrix != null) {
+            for (int[] innerMatrix : matrix) {
+                for (int num : innerMatrix) {
+                    if (num == target) return true;
+                }
+            }
+        }
+        return false;
     }
 }
