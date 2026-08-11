@@ -25,7 +25,7 @@ public class MissingNumber {
 
         HashMap<Integer, Integer> map = new HashMap<>();
 
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i <= array.length; i++) {
             map.put(i,i);
         }
 
@@ -35,10 +35,10 @@ public class MissingNumber {
             }
         }
 
-        int res = 1;
+        int res = -1;
 
         for (int num : map.keySet()) {
-            res = map.get(num);
+            res = num;
         }
 
         return res;
