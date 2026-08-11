@@ -1,5 +1,7 @@
 package com.dsa.assessment.day02;
 
+import java.util.HashMap;
+
 /**
  * Day 02 - MissingNumber
  * 
@@ -19,6 +21,26 @@ public class MissingNumber {
      */
     public int findMissing(int[] array) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement findMissing(int[] array)");
+        if (array == null) return 0;
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < array.length; i++) {
+            map.put(i,i);
+        }
+
+        for (int num : array) {
+            if (map.containsKey(num)) {
+                map.remove(num);
+            }
+        }
+
+        int res = 1;
+
+        for (int num : map.keySet()) {
+            res = map.get(num);
+        }
+
+        return res;
     }
 }
