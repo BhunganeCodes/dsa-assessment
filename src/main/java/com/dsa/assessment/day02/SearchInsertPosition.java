@@ -19,6 +19,16 @@ public class SearchInsertPosition {
      */
     public int searchInsert(int[] sortedArray, int target) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement searchInsert(int[] sortedArray, int target)");
+        if (sortedArray != null) {
+            for (int i = 0; i < sortedArray.length; i++) {
+                if (sortedArray[i] >= target) {
+                    return i;
+                } else if (sortedArray[i] == target) {
+                    return i - 1;
+                }
+            }
+            return sortedArray.length;
+        }
+        return 0;
     }
 }
