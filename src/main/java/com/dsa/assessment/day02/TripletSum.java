@@ -27,6 +27,33 @@ public class TripletSum {
         if (array == null) return result;
 
         Arrays.sort(array);
+
+        for (int i = 0; i < array.length - 2; i++) {
+            if (i > 0 && array[i] == array[i - 1]) continue;
+
+            int left = i + 1;
+            int right = array.length - 1;
+
+            while (left < right) {
+                int sum = array[left] + array[i] + array[right];
+
+                if (sum == target) {
+                    result.add(new int[]{array[i], array[left], array[right]});
+
+
+                    while (left < right && array[left] == array[left + 1]) left++;
+                    while (left < right && array[right] == array[right - 1]) right--;
+
+                    left++;
+                    right--;
+                } else if (sum < target) {
+                    left++;
+                } else {
+                    right--;
+                }
+            }
+        }
+
         return result;
     }
 }
