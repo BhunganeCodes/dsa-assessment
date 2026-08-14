@@ -1,5 +1,7 @@
 package com.dsa.assessment.day02;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -21,6 +23,10 @@ public class TripletSum {
      */
     public List<int[]> findTriplets(int[] array, int target) {
         // TODO: Implement this method
-        throw new UnsupportedOperationException("TODO: Implement findTriplets(int[] array, int target)");
+        List<int[]> result = new ArrayList<>();
+        if (array == null) return result;
+
+        Arrays.sort(array);
+        return result;
     }
 }
